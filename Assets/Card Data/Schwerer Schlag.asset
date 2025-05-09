@@ -15,3 +15,4 @@ MonoBehaviour:
   cardName: Schwerer Schlag
   cardImage: {fileID: -7073178900922276601, guid: d1a728f43382f2c4e94c2f37bcb29076, type: 3}
   manaCost: 2
+  damage: 2

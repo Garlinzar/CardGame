@@ -6,4 +6,5 @@ public class CardData : ScriptableObject
     public string cardName;
     public Sprite cardImage;
     public int manaCost;
+    public int damage;
 }

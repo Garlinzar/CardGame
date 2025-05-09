@@ -15,3 +15,4 @@ MonoBehaviour:
   cardName: Shield Dash
   cardImage: {fileID: -3050307441507602920, guid: d0c99970f3f62024ca0b9a820f0e3123, type: 3}
   manaCost: 1
+  damage: 1

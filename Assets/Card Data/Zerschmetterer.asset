@@ -15,3 +15,4 @@ MonoBehaviour:
   cardName: Zerschmetterer
   cardImage: {fileID: -6017837495927632980, guid: 0eb267bdfe9bc2e4db080efcdef7763e, type: 3}
   manaCost: 3
+  damage: 3

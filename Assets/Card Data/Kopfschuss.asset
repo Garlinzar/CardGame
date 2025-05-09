@@ -15,3 +15,4 @@ MonoBehaviour:
   cardName: Kopfschuss
   cardImage: {fileID: 6999797581677937500, guid: 53dc1420f56746a4ca3b575e14553d6b, type: 3}
   manaCost: 2
+  damage: 2

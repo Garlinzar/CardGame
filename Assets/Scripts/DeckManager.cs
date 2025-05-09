@@ -69,7 +69,6 @@ public class DeckManager : MonoBehaviour
 
             GameObject newCard = Instantiate(cardPrefab, cardHolder);
 
-            // CardDisplay: optisches Setzen
             CardDisplay display = newCard.GetComponentInChildren<CardDisplay>();
             if (display != null)
             {
@@ -80,7 +79,6 @@ public class DeckManager : MonoBehaviour
                     display.manaText.text = card.manaCost.ToString();
             }
 
-            // CardDataHolder: zum späteren Spielen
             CardDataHolder holder = newCard.AddComponent<CardDataHolder>();
             holder.cardData = card;
         }
@@ -91,20 +89,27 @@ public class DeckManager : MonoBehaviour
         if (CardSelector.selectedCard == null) return;
 
         CardDataHolder holder = CardSelector.selectedCard.GetComponent<CardDataHolder>();
+        if (holder == null || holder.cardData == null) return;
 
-        if (holder != null && gameManager != null)
+        int manaCost = holder.cardData.manaCost;
+        int damage = holder.cardData.damage;
+
+        if (!gameManager.TrySpendMana(manaCost)) return;
+
+        // Gegner über Singleton finden
+        EnemySpawner spawner = EnemySpawner.Instance;
+        if (spawner == null || spawner.activeEnemies == null) return;
+
+        foreach (Enemy enemy in spawner.activeEnemies)
         {
-            int manaCost = holder.cardData.manaCost;
-
-            if (gameManager.TrySpendMana(manaCost))
+            if (enemy != null && enemy.currentHealth > 0)
             {
-                Destroy(CardSelector.selectedCard);
-                CardSelector.selectedCard = null;
-            }
-            else
-            {
-                Debug.Log("Nicht genug Mana!");
+                enemy.TakeDamage(damage);
+                break;
             }
         }
+
+        Destroy(CardSelector.selectedCard);
+        CardSelector.selectedCard = null;
     }
 }

@@ -15,3 +15,4 @@ MonoBehaviour:
   cardName: Stich
   cardImage: {fileID: 2750522495398308757, guid: 6746c69b75da94848b12544536f1d6e9, type: 3}
   manaCost: 1
+  damage: 1
