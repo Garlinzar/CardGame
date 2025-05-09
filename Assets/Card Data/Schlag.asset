@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990fe22063eafe24b8eb87c843915aa9, type: 3}
+  m_Name: Schlag
+  m_EditorClassIdentifier: 
+  cardName: Schlag
+  cardImage: {fileID: -7355844973371500262, guid: 17bc2aba7a2ebca44b373a8b25457942, type: 3}
+  manaCost: 1
