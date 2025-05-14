@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Echo
   m_EditorClassIdentifier: 
   cardName: Echo
-  cardImage: {fileID: 7793930305770317707, guid: 680d16a87c3afdb43a884d9c1068d791, type: 3}
+  cardImage: {fileID: 7793930305770317707, guid: 6f3a1aa5463358140b1e890ddf52d562, type: 3}
   manaCost: 1
+  damage: 0

@@ -24,9 +24,13 @@ public class DeckManager : MonoBehaviour
 
     public GameManager gameManager;
 
+    [Header("Draw Settings")]
+    public int drawCardManaCost = 1;
+
+
     void Start()
     {
-        BuildDeck();
+        BuildDeck(); 
     }
 
     public void BuildDeck()
@@ -42,6 +46,7 @@ public class DeckManager : MonoBehaviour
         }
 
         ShuffleDeck();
+        DrawStartingHand(4);
     }
 
     public void ShuffleDeck()
@@ -57,6 +62,12 @@ public class DeckManager : MonoBehaviour
 
     public void DrawCards(int amount)
     {
+        if (!gameManager.TrySpendMana(drawCardManaCost))
+        {
+            Debug.Log("Nicht genug Mana zum Karten ziehen.");
+            return;
+        }
+
         foreach (Transform child in cardHolder)
         {
             Destroy(child.gameObject);
@@ -64,8 +75,10 @@ public class DeckManager : MonoBehaviour
 
         for (int i = 0; i < amount && currentDeck.Count > 0; i++)
         {
-            CardData card = currentDeck[0];
-            currentDeck.RemoveAt(0);
+            if (currentDeck.Count == 0)
+                break;
+
+            CardData card = currentDeck[Random.Range(0, currentDeck.Count)];
 
             GameObject newCard = Instantiate(cardPrefab, cardHolder);
 
@@ -83,6 +96,54 @@ public class DeckManager : MonoBehaviour
             holder.cardData = card;
         }
     }
+
+    public void DrawStartingHand(int amount)
+    {
+
+        if (currentDeck.Count == 0)
+        {
+            return;
+        }
+
+        // Alte Karten entfernen
+        foreach (Transform child in cardHolder)
+        {
+            Destroy(child.gameObject);
+        }
+
+        for (int i = 0; i < amount; i++)
+        {
+            CardData card = currentDeck[Random.Range(0, currentDeck.Count)];
+
+            GameObject newCard = Instantiate(cardPrefab, cardHolder);
+            if (newCard == null)
+            {
+                Debug.LogError($"[DrawStartingHand] Fehler beim Instanziieren der Karte {card.name}");
+                continue;
+            }
+
+            // Anzeige aktualisieren
+            CardDisplay display = newCard.GetComponentInChildren<CardDisplay>();
+            if (display != null)
+            {
+                if (display.cardImage != null)
+                    display.cardImage.sprite = card.cardImage;
+
+                if (display.manaText != null)
+                    display.manaText.text = card.manaCost.ToString();
+            }
+            else
+            {
+                Debug.LogWarning("[DrawStartingHand] Kein CardDisplay an der neuen Karte gefunden.");
+            }
+
+            // Daten setzen
+            CardDataHolder holder = newCard.AddComponent<CardDataHolder>();
+            holder.cardData = card;
+
+        }
+    }
+
 
     public void PlayCard()
     {

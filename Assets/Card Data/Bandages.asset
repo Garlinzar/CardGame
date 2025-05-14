@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Bandages
   m_EditorClassIdentifier: 
   cardName: Bandagen
-  cardImage: {fileID: 5694439119944828843, guid: 67dc09a245c688a4e9824c7d2af96d15, type: 3}
+  cardImage: {fileID: -6228529461287907930, guid: 17ee2f6804af37c46b25a6be040cb44e, type: 3}
   manaCost: 1
+  damage: 0

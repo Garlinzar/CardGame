@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Meditieren
   m_EditorClassIdentifier: 
   cardName: Meditieren
-  cardImage: {fileID: -8814369184970570293, guid: 51bf02326a4aeac4f998317d16cd9882, type: 3}
+  cardImage: {fileID: -8814369184970570293, guid: d8d24f71e42c1724b8677b6f4cf41c1e, type: 3}
   manaCost: 1
+  damage: 0

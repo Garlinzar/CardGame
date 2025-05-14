@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Schlag
   m_EditorClassIdentifier: 
   cardName: Schlag
-  cardImage: {fileID: -7355844973371500262, guid: 17bc2aba7a2ebca44b373a8b25457942, type: 3}
+  cardImage: {fileID: 2750522495398308757, guid: 5749a6a1f7106ce43a7ad2875d086524, type: 3}
   manaCost: 1
   damage: 1
