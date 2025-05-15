@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [Header("Health Settings")]
     public int maxHealth = 10;
     public int currentHealth = 10;
+    public int attackDamage = 2;
 
     [Header("UI")]
     public Slider healthSlider;
@@ -40,5 +41,12 @@ public class Enemy : MonoBehaviour
     {
         // Hier kannst du später Animation, FX oder Destroy hinzufügen
         Destroy(gameObject);
+    }
+    public void AttackPlayer(PlayerHealthManager player)
+    {
+        if (player != null)
+        {
+            player.TakeDamage(attackDamage);
+        }
     }
 }
