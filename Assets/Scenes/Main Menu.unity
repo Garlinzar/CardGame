@@ -4204,7 +4204,7 @@ MonoBehaviour:
   musicVolumeSlider: {fileID: 959211505}
   sfxVolumeSlider: {fileID: 859822011}
   muteToggle: {fileID: 1541852900}
-  gameplaySceneName: SampleScene
+  gameplaySceneName: Main Scene
 --- !u!1 &2050336927
 GameObject:
   m_ObjectHideFlags: 0
