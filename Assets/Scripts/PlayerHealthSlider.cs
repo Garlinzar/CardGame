@@ -10,6 +10,8 @@ public class PlayerHealthManager : MonoBehaviour
     public int maxHealth = 20;
     public int currentHealth;
 
+    public GameOverManager gameOverManager;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -24,8 +26,7 @@ public class PlayerHealthManager : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Spieler ist tot.");
-            // Hier könnte Game Over oder Neustart ausgelöst werden
+            gameOverManager.ShowGameOver();
         }
     }
 
@@ -42,4 +43,11 @@ public class PlayerHealthManager : MonoBehaviour
             healthText.text = $"{currentHealth} / {maxHealth}";
         }
     }
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        UpdateHealthUI();
+    }
+
 }

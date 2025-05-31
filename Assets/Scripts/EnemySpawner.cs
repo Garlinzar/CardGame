@@ -19,6 +19,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     public List<Enemy> activeEnemies = new List<Enemy>();
 
+    public int currentWave = 1; // Neu: Zähler für die aktuelle Welle
+    public int maxWaves = 10;   // Neu: Maximale Wellenzahl (inkl. Boss)
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -39,17 +42,47 @@ public class EnemySpawner : MonoBehaviour
     {
         activeEnemies.Clear();
 
-        foreach (EnemySpawnSlot slot in spawnSlots)
+        if (currentWave < maxWaves)
         {
-            if (slot.enabled && slot.spawnPoint != null && slot.enemyPrefab != null)
+            Debug.Log($"Welle {currentWave} startet: Normale Gegner spawnen.");
+
+            foreach (EnemySpawnSlot slot in spawnSlots)
             {
-                GameObject instance = Instantiate(slot.enemyPrefab, slot.spawnPoint.position, Quaternion.identity);
-                Enemy enemyScript = instance.GetComponent<Enemy>();
-                if (enemyScript != null)
+                if (slot.enabled && slot.spawnPoint != null && slot.enemyPrefab != null)
                 {
-                    activeEnemies.Add(enemyScript);
+                    GameObject instance = Instantiate(slot.enemyPrefab, slot.spawnPoint.position, Quaternion.identity);
+                    Enemy enemyScript = instance.GetComponent<Enemy>();
+                    if (enemyScript != null)
+                    {
+                        activeEnemies.Add(enemyScript);
+                    }
                 }
             }
         }
+        else if (currentWave == maxWaves)
+        {
+            Debug.Log("Welle 10 startet: BOSS spawnt! (Platzhalter)");
+            // Hier später Boss spawnen, wenn gewünscht
+            // Beispiel: Instantiate(bossPrefab, bossSpawnPoint.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.Log("Alle Wellen abgeschlossen! (Optional: Game Over oder Sieg)");
+        }
+
+        currentWave++;
+    }
+
+    public bool AreAllEnemiesDead()
+    {
+        if (activeEnemies == null || activeEnemies.Count == 0)
+            return true;
+
+        foreach (Enemy enemy in activeEnemies)
+        {
+            if (enemy != null && enemy.currentHealth > 0)
+                return false;
+        }
+        return true;
     }
 }

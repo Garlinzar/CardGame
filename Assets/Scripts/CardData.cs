@@ -7,4 +7,6 @@ public class CardData : ScriptableObject
     public Sprite cardImage;
     public int manaCost;
     public int damage;
+    public int healAmount; // Heilt den Spieler
+    public int bonusManaNextTurn; // Gibt Bonusmana für nächste Runde
 }

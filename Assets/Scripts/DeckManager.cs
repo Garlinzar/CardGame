@@ -154,20 +154,38 @@ public class DeckManager : MonoBehaviour
 
         int manaCost = holder.cardData.manaCost;
         int damage = holder.cardData.damage;
+        int healAmount = holder.cardData.healAmount;
+        int bonusManaNextTurn = holder.cardData.bonusManaNextTurn;
 
         if (!gameManager.TrySpendMana(manaCost)) return;
 
-        // Gegner über Singleton finden
+        // Schaden an Gegner zufügen
         EnemySpawner spawner = EnemySpawner.Instance;
-        if (spawner == null || spawner.activeEnemies == null) return;
-
-        foreach (Enemy enemy in spawner.activeEnemies)
+        if (spawner != null && spawner.activeEnemies != null)
         {
-            if (enemy != null && enemy.currentHealth > 0)
+            foreach (Enemy enemy in spawner.activeEnemies)
             {
-                enemy.TakeDamage(damage);
-                break;
+                if (enemy != null && enemy.currentHealth > 0)
+                {
+                    enemy.TakeDamage(damage);
+                    break;
+                }
             }
+        }
+
+        // Spieler heilen
+        if (healAmount > 0)
+        {
+            if (gameManager.playerHealthManager != null)
+            {
+                gameManager.playerHealthManager.Heal(healAmount);
+            }
+        }
+
+        // Bonusmana für nächste Runde speichern
+        if (bonusManaNextTurn > 0)
+        {
+            gameManager.AddBonusMana(bonusManaNextTurn);
         }
 
         Destroy(CardSelector.selectedCard);

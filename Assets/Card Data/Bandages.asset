@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Bandagen
   cardImage: {fileID: -6228529461287907930, guid: 17ee2f6804af37c46b25a6be040cb44e, type: 3}
-  manaCost: 1
+  manaCost: 2
   damage: 0
+  healAmount: 10
+  bonusManaNextTurn: 0
