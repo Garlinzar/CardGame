@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public int currentMana = 10;
     public Slider manaSlider;
     private int bonusMana = 0;
+    private int pendingBonusMana = 0;
+    public TextMeshProUGUI bonusManaText;
+
 
     [Header("Referenzen")]
     public DeckManager deckManager; // damit wir deckManager.ResetMana() nicht brauchen
@@ -22,14 +25,32 @@ public class GameManager : MonoBehaviour
 
     public bool TrySpendMana(int amount)
     {
+        int bonusUsed = 0;
+
+        // Zuerst BonusMana abziehen
+        if (bonusMana > 0)
+        {
+            bonusUsed = Mathf.Min(bonusMana, amount);
+            bonusMana -= bonusUsed;
+            amount -= bonusUsed;
+        }
+
+        // Dann Normales Mana abziehen
         if (currentMana >= amount)
         {
             currentMana -= amount;
             UpdateManaUI();
+            UpdateBonusManaUI();
             return true;
         }
+
+        // Falls zu wenig Mana da ist: Bonus zurückgeben
+        bonusMana += bonusUsed;
+        UpdateBonusManaUI();
         return false;
     }
+
+
 
     public void UpdateManaUI()
     {
@@ -47,14 +68,20 @@ public class GameManager : MonoBehaviour
     }
     public void AddBonusMana(int amount)
     {
-        bonusMana += amount;
+        pendingBonusMana += amount;
+        UpdateBonusManaUI();
     }
     public void ResetMana()
     {
+        bonusMana = pendingBonusMana;
+        pendingBonusMana = 0;
+
         currentMana = maxMana;
-        bonusMana = 0; // Nur für nächste Runde
         UpdateManaUI();
+        UpdateBonusManaUI();
     }
+
+
 
     // 🟡 Neue Methode für den End Turn Button
     public void OnEndTurn()
@@ -83,6 +110,24 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogWarning("Keine Gegner gefunden oder EnemySpawner.Instance ist null.");
+        }
+    }
+    public void UpdateBonusManaUI()
+    {
+        if (bonusManaText != null)
+        {
+            if (pendingBonusMana > 0)
+            {
+                bonusManaText.text = "+" + pendingBonusMana;
+            }
+            else if (bonusMana > 0)
+            {
+                bonusManaText.text = "+" + bonusMana;
+            }
+            else
+            {
+                bonusManaText.text = "";
+            }
         }
     }
 
