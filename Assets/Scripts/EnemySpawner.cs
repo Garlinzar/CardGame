@@ -46,14 +46,16 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.Log($"Welle {currentWave} startet: Normale Gegner spawnen.");
 
-            foreach (EnemySpawnSlot slot in spawnSlots)
+            for (int i = 0; i < spawnSlots.Length; i++)
             {
+                EnemySpawnSlot slot = spawnSlots[i];
                 if (slot.enabled && slot.spawnPoint != null && slot.enemyPrefab != null)
                 {
                     GameObject instance = Instantiate(slot.enemyPrefab, slot.spawnPoint.position, Quaternion.identity);
                     Enemy enemyScript = instance.GetComponent<Enemy>();
                     if (enemyScript != null)
                     {
+                        enemyScript.enemyIndex = i;  // 🔥 Index setzen
                         activeEnemies.Add(enemyScript);
                     }
                 }
@@ -63,7 +65,6 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.Log("Welle 10 startet: BOSS spawnt! (Platzhalter)");
             // Hier später Boss spawnen, wenn gewünscht
-            // Beispiel: Instantiate(bossPrefab, bossSpawnPoint.position, Quaternion.identity);
         }
         else
         {
@@ -72,6 +73,7 @@ public class EnemySpawner : MonoBehaviour
 
         currentWave++;
     }
+
 
     public bool AreAllEnemiesDead()
     {

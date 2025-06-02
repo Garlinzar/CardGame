@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 10;
     public int currentHealth = 10;
     public int attackDamage = 2;
+    public int enemyIndex;
+    public Transform popupSpawnPoint;
+
 
     [Header("UI")]
     public Slider healthSlider;
@@ -22,6 +25,7 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthUI();
+        DamagePopupSpawner.Instance.SpawnEnemyDamagePopup(enemyIndex, -damage, Color.red);
 
         if (currentHealth <= 0)
         {
