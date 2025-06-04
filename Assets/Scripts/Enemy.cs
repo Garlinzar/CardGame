@@ -22,11 +22,12 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (damage > 0) { 
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthUI();
         DamagePopupSpawner.Instance.SpawnEnemyDamagePopup(enemyIndex, -damage, Color.red);
-
+    }
         if (currentHealth <= 0)
         {
             Die();

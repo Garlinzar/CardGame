@@ -9,4 +9,5 @@ public class CardData : ScriptableObject
     public int damage;
     public int healAmount; // Heilt den Spieler
     public int bonusManaNextTurn; // Gibt Bonusmana für nächste Runde
+    public AudioClip playSound;
 }

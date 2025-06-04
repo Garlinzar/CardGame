@@ -16,3 +16,6 @@ MonoBehaviour:
   cardImage: {fileID: -6883316174463589455, guid: 7de49a3bd43a93e418417cc75b37edb9, type: 3}
   manaCost: 1
   damage: 1
+  healAmount: 0
+  bonusManaNextTurn: 0
+  playSound: {fileID: 8300000, guid: c2e822f78004ab648af7f053305822d6, type: 3}

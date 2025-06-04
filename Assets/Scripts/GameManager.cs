@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;  // WICHTIG: Für Coroutine
 
 public class GameManager : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class GameManager : MonoBehaviour
     private int pendingBonusMana = 0;
     public TextMeshProUGUI bonusManaText;
 
-
     [Header("Referenzen")]
-    public DeckManager deckManager; // damit wir deckManager.ResetMana() nicht brauchen
-    public PlayerHealthManager playerHealthManager; // Referenz auf Spielerleben
+    public DeckManager deckManager;
+    public PlayerHealthManager playerHealthManager;
+
+    [Header("Enemy Attack Settings")]
+    public float enemyAttackDelay = 0.5f; // Delay in Sekunden zwischen den Attacken
 
     void Start()
     {
@@ -27,7 +30,6 @@ public class GameManager : MonoBehaviour
     {
         int bonusUsed = 0;
 
-        // Zuerst BonusMana abziehen
         if (bonusMana > 0)
         {
             bonusUsed = Mathf.Min(bonusMana, amount);
@@ -35,7 +37,6 @@ public class GameManager : MonoBehaviour
             amount -= bonusUsed;
         }
 
-        // Dann Normales Mana abziehen
         if (currentMana >= amount)
         {
             currentMana -= amount;
@@ -44,13 +45,10 @@ public class GameManager : MonoBehaviour
             return true;
         }
 
-        // Falls zu wenig Mana da ist: Bonus zurückgeben
         bonusMana += bonusUsed;
         UpdateBonusManaUI();
         return false;
     }
-
-
 
     public void UpdateManaUI()
     {
@@ -66,11 +64,13 @@ public class GameManager : MonoBehaviour
             manaText.text = currentMana + " / " + maxMana;
         }
     }
+
     public void AddBonusMana(int amount)
     {
         pendingBonusMana += amount;
         UpdateBonusManaUI();
     }
+
     public void ResetMana()
     {
         bonusMana = pendingBonusMana;
@@ -81,9 +81,6 @@ public class GameManager : MonoBehaviour
         UpdateBonusManaUI();
     }
 
-
-
-    // 🟡 Neue Methode für den End Turn Button
     public void OnEndTurn()
     {
         Debug.Log("Zug beendet. Mana wird zurückgesetzt und Gegner greifen an.");
@@ -92,26 +89,32 @@ public class GameManager : MonoBehaviour
 
         if (EnemySpawner.Instance != null && EnemySpawner.Instance.activeEnemies != null)
         {
-            foreach (Enemy enemy in EnemySpawner.Instance.activeEnemies)
-            {
-                if (enemy != null && enemy.currentHealth > 0)
-                {
-                    enemy.AttackPlayer(playerHealthManager);
-                }
-            }
-
-            // Prüfen, ob alle tot sind, danach neue Gegner spawnen
-            if (EnemySpawner.Instance.AreAllEnemiesDead())
-            {
-                Debug.Log("Alle Gegner wurden besiegt! Neue Gegner spawnen.");
-                EnemySpawner.Instance.SpawnEnemies();
-            }
+            StartCoroutine(EnemyAttackSequence());
         }
         else
         {
             Debug.LogWarning("Keine Gegner gefunden oder EnemySpawner.Instance ist null.");
         }
     }
+
+    private IEnumerator EnemyAttackSequence()
+    {
+        foreach (Enemy enemy in EnemySpawner.Instance.activeEnemies)
+        {
+            if (enemy != null && enemy.currentHealth > 0)
+            {
+                enemy.AttackPlayer(playerHealthManager);
+                yield return new WaitForSeconds(enemyAttackDelay);
+            }
+        }
+
+        if (EnemySpawner.Instance.AreAllEnemiesDead())
+        {
+            Debug.Log("Alle Gegner wurden besiegt! Neue Gegner spawnen.");
+            EnemySpawner.Instance.SpawnEnemies();
+        }
+    }
+
     public void UpdateBonusManaUI()
     {
         if (bonusManaText != null)
@@ -130,6 +133,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-
 }

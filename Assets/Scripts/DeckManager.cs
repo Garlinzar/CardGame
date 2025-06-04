@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 [System.Serializable]
 public class CardEntry
@@ -26,6 +27,9 @@ public class DeckManager : MonoBehaviour
 
     [Header("Draw Settings")]
     public int drawCardManaCost = 1;
+    public AudioClip cardPlaceSound; // Der einheitliche Sound fürs Kartenlegen
+    public AudioSource audioSource;
+
 
 
     void Start()
@@ -159,16 +163,40 @@ public class DeckManager : MonoBehaviour
 
         if (!gameManager.TrySpendMana(manaCost)) return;
 
-        // Schaden an Gegner zufügen
-        EnemySpawner spawner = EnemySpawner.Instance;
-        if (spawner != null && spawner.activeEnemies != null)
+        StartCoroutine(PlayCardWithSounds(holder.cardData, damage, healAmount, bonusManaNextTurn));
+
+        Destroy(CardSelector.selectedCard);
+        CardSelector.selectedCard = null;
+    }
+
+    private IEnumerator PlayCardWithSounds(CardData cardData, int damage, int healAmount, int bonusManaNextTurn)
+    {
+        // 🔊 Zuerst globaler Kartenlegen-Sound
+        if (cardPlaceSound != null && audioSource != null)
         {
-            foreach (Enemy enemy in spawner.activeEnemies)
+            audioSource.PlayOneShot(cardPlaceSound);
+            yield return new WaitForSeconds(cardPlaceSound.length);
+        }
+
+        // 🔊 Danach optional Kartensound der Karte
+        if (cardData.playSound != null)
+        {
+            AudioSource.PlayClipAtPoint(cardData.playSound, Camera.main.transform.position);
+        }
+
+        // Schaden an Gegner zufügen (nur wenn damage > 0)
+        if (damage > 0)
+        {
+            EnemySpawner spawner = EnemySpawner.Instance;
+            if (spawner != null && spawner.activeEnemies != null)
             {
-                if (enemy != null && enemy.currentHealth > 0)
+                foreach (Enemy enemy in spawner.activeEnemies)
                 {
-                    enemy.TakeDamage(damage);
-                    break;
+                    if (enemy != null && enemy.currentHealth > 0)
+                    {
+                        enemy.TakeDamage(damage);
+                        break;
+                    }
                 }
             }
         }
@@ -187,8 +215,8 @@ public class DeckManager : MonoBehaviour
         {
             gameManager.AddBonusMana(bonusManaNextTurn);
         }
-
-        Destroy(CardSelector.selectedCard);
-        CardSelector.selectedCard = null;
     }
+
+
+
 }
