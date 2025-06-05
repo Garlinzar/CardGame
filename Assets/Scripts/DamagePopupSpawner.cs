@@ -12,6 +12,7 @@ public class DamagePopupSpawner : MonoBehaviour
     [Header("Spawnpunkte")]
     public Transform playerSpawnPoint;
     public List<Transform> enemySpawnPoints = new List<Transform>();
+    public Transform bossPopupPoint; // Neu für den Boss (Index 4)
 
     private void Awake()
     {
@@ -40,13 +41,40 @@ public class DamagePopupSpawner : MonoBehaviour
     /// </summary>
     public void SpawnEnemyDamagePopup(int enemyIndex, int amount, Color textColor)
     {
-        if (damagePopupPrefab == null || enemyIndex < 0 || enemyIndex >= enemySpawnPoints.Count)
+        if (damagePopupPrefab == null)
         {
-            Debug.LogWarning("DamagePopupPrefab oder enemySpawnPoint fehlt!");
+            Debug.LogWarning("DamagePopupPrefab fehlt!");
             return;
         }
 
-        SpawnDamagePopupAtPosition(enemySpawnPoints[enemyIndex].position, amount, textColor);
+        // Prüfen, ob es sich um den Boss (Index 4) handelt:
+        if (enemyIndex == 4)
+        {
+            if (bossPopupPoint != null)
+            {
+                SpawnDamagePopupAtPosition(bossPopupPoint.position, amount, textColor);
+            }
+            else
+            {
+                Debug.LogWarning("BossPopupPoint fehlt!");
+            }
+        }
+        // Normale Gegner (Index 0–2)
+        else if (enemyIndex >= 0 && enemyIndex < enemySpawnPoints.Count)
+        {
+            if (enemySpawnPoints[enemyIndex] != null)
+            {
+                SpawnDamagePopupAtPosition(enemySpawnPoints[enemyIndex].position, amount, textColor);
+            }
+            else
+            {
+                Debug.LogWarning($"EnemySpawnPoint {enemyIndex} fehlt!");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Ungültiger enemyIndex oder kein enemySpawnPoint!");
+        }
     }
 
     /// <summary>

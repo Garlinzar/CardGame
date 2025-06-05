@@ -480,4 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 10
+  attackDamage: 2
+  enemyIndex: 0
+  popupSpawnPoint: {fileID: 0}
   healthSlider: {fileID: 5971426546876909108}

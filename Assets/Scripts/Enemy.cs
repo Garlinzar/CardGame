@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     public int attackDamage = 2;
     public int enemyIndex;
     public Transform popupSpawnPoint;
-
 
     [Header("UI")]
     public Slider healthSlider;
@@ -22,17 +21,28 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (damage > 0) { 
+        if (damage <= 0)
+        {
+            // Kein Schaden = kein Popup spawnen
+            return;
+        }
+
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthUI();
-        DamagePopupSpawner.Instance.SpawnEnemyDamagePopup(enemyIndex, -damage, Color.red);
-    }
+
+        // Damage-Popup-Logik
+        if (DamagePopupSpawner.Instance != null)
+        {
+            DamagePopupSpawner.Instance.SpawnEnemyDamagePopup(enemyIndex, -damage, Color.red);
+        }
+
         if (currentHealth <= 0)
         {
             Die();
         }
     }
+
 
     private void UpdateHealthUI()
     {
@@ -44,9 +54,10 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        // Hier kannst du später Animation, FX oder Destroy hinzufügen
+        // Hier kannst du spÃ¤ter Animation, FX oder Destroy hinzufÃ¼gen
         Destroy(gameObject);
     }
+
     public void AttackPlayer(PlayerHealthManager player)
     {
         if (player != null)
