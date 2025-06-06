@@ -1,0 +1,1430 @@
+fileFormatVersion: 2
+guid: 9a1fc323ad10d5045b814e9014be146c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9054770599406001181
+    second: tainted_souls_fixed_0
+  - first:
+      213: 3651623710823199422
+    second: tainted_souls_fixed_1
+  - first:
+      213: -5495504976945397216
+    second: tainted_souls_fixed_2
+  - first:
+      213: 3736790847822140635
+    second: tainted_souls_fixed_3
+  - first:
+      213: 9006975277920174551
+    second: tainted_souls_fixed_4
+  - first:
+      213: -5392862002608305588
+    second: tainted_souls_fixed_5
+  - first:
+      213: 4643594509916735146
+    second: tainted_souls_fixed_6
+  - first:
+      213: -1875789270848508918
+    second: tainted_souls_fixed_7
+  - first:
+      213: -5075003182789375310
+    second: tainted_souls_fixed_8
+  - first:
+      213: 4054130626886628860
+    second: tainted_souls_fixed_9
+  - first:
+      213: 8475719216884306630
+    second: tainted_souls_fixed_10
+  - first:
+      213: -3571062465053265588
+    second: tainted_souls_fixed_11
+  - first:
+      213: -4896967006370446664
+    second: tainted_souls_fixed_12
+  - first:
+      213: -2794624687833587760
+    second: tainted_souls_fixed_13
+  - first:
+      213: 464953033428765758
+    second: tainted_souls_fixed_14
+  - first:
+      213: -4595688281439471951
+    second: tainted_souls_fixed_15
+  - first:
+      213: 7369186707358918888
+    second: tainted_souls_fixed_16
+  - first:
+      213: 616739010681211674
+    second: tainted_souls_fixed_17
+  - first:
+      213: -3611217675578685747
+    second: tainted_souls_fixed_18
+  - first:
+      213: 3178619126297123398
+    second: tainted_souls_fixed_19
+  - first:
+      213: 2561725356567321259
+    second: tainted_souls_fixed_20
+  - first:
+      213: -3749755316166500250
+    second: tainted_souls_fixed_21
+  - first:
+      213: -160812305776497564
+    second: tainted_souls_fixed_22
+  - first:
+      213: 5426233797987640222
+    second: tainted_souls_fixed_23
+  - first:
+      213: -1079571565644703910
+    second: tainted_souls_fixed_24
+  - first:
+      213: 6201634820572427132
+    second: tainted_souls_fixed_25
+  - first:
+      213: -5213069014905327408
+    second: tainted_souls_fixed_26
+  - first:
+      213: -4705494292890339040
+    second: tainted_souls_fixed_27
+  - first:
+      213: 3481140985002151393
+    second: tainted_souls_fixed_28
+  - first:
+      213: 1641537469319543102
+    second: tainted_souls_fixed_29
+  - first:
+      213: -2822733374041593832
+    second: tainted_souls_fixed_30
+  - first:
+      213: -4892249726349509301
+    second: tainted_souls_fixed_31
+  - first:
+      213: 423426026215713037
+    second: tainted_souls_fixed_32
+  - first:
+      213: -7058993316970692747
+    second: tainted_souls_fixed_33
+  - first:
+      213: -3945958758072850119
+    second: tainted_souls_fixed_34
+  - first:
+      213: 2896832721618063317
+    second: tainted_souls_fixed_35
+  - first:
+      213: -3585400535979018459
+    second: tainted_souls_fixed_36
+  - first:
+      213: 6941679342872436244
+    second: tainted_souls_fixed_37
+  - first:
+      213: -2886545381986556335
+    second: tainted_souls_fixed_38
+  - first:
+      213: -7854135758945438055
+    second: tainted_souls_fixed_39
+  - first:
+      213: -2175710694100736965
+    second: tainted_souls_fixed_40
+  - first:
+      213: -7883356621497385329
+    second: tainted_souls_fixed_41
+  - first:
+      213: 2434367281719000009
+    second: tainted_souls_fixed_42
+  - first:
+      213: 3206377756445565920
+    second: tainted_souls_fixed_43
+  - first:
+      213: -1716296535475244545
+    second: tainted_souls_fixed_44
+  - first:
+      213: 3703878003054185546
+    second: tainted_souls_fixed_45
+  - first:
+      213: -2367242353902113422
+    second: tainted_souls_fixed_46
+  - first:
+      213: 6267810771726340910
+    second: tainted_souls_fixed_47
+  - first:
+      213: -806780876626662374
+    second: tainted_souls_fixed_48
+  - first:
+      213: 8311020830950197796
+    second: tainted_souls_fixed_49
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tainted_souls_fixed_0
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 862
+        width: 546
+        height: 1081
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e321c33d1ef65280800000000000000
+      internalID: -9054770599406001181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_1
+      rect:
+        serializedVersion: 2
+        x: 3594
+        y: 1524
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb2b209fa6c2da230800000000000000
+      internalID: 3651623710823199422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_2
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 296
+        width: 546
+        height: 1140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02247c3075b0cb3b0800000000000000
+      internalID: -5495504976945397216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_3
+      rect:
+        serializedVersion: 2
+        x: 3078
+        y: 1425
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd49e5c4a7fbbd330800000000000000
+      internalID: 3736790847822140635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_4
+      rect:
+        serializedVersion: 2
+        x: 3098
+        y: 1431
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d148255b443ffc70800000000000000
+      internalID: 9006975277920174551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_5
+      rect:
+        serializedVersion: 2
+        x: 3110
+        y: 1430
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4a84dbc494b825b0800000000000000
+      internalID: -5392862002608305588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_6
+      rect:
+        serializedVersion: 2
+        x: 3124
+        y: 1430
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa68a8c9a9c517040800000000000000
+      internalID: 4643594509916735146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_7
+      rect:
+        serializedVersion: 2
+        x: 3522
+        y: 1434
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0ce595b89bd7f5e0800000000000000
+      internalID: -1875789270848508918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_8
+      rect:
+        serializedVersion: 2
+        x: 3928
+        y: 1302
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2baccd76e77f199b0800000000000000
+      internalID: -5075003182789375310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_9
+      rect:
+        serializedVersion: 2
+        x: 2624
+        y: 1206
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5fb90535a234830800000000000000
+      internalID: 4054130626886628860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_10
+      rect:
+        serializedVersion: 2
+        x: 2849
+        y: 1172
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c25752b8bdcf9570800000000000000
+      internalID: 8475719216884306630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_11
+      rect:
+        serializedVersion: 2
+        x: 3980
+        y: 1166
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c41f4cbbb99017ec0800000000000000
+      internalID: -3571062465053265588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_12
+      rect:
+        serializedVersion: 2
+        x: 2626
+        y: 730
+        width: 202
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b24b74f37a7a0cb0800000000000000
+      internalID: -4896967006370446664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_13
+      rect:
+        serializedVersion: 2
+        x: 2652
+        y: 1141
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0df542927af7739d0800000000000000
+      internalID: -2794624687833587760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_14
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 1050
+        width: 66
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3c03ca0258d37600800000000000000
+      internalID: 464953033428765758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_15
+      rect:
+        serializedVersion: 2
+        x: 2610
+        y: 1100
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b6ff566bd5d830c0800000000000000
+      internalID: -4595688281439471951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_16
+      rect:
+        serializedVersion: 2
+        x: 3396
+        y: 1106
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e8a8a7444c944660800000000000000
+      internalID: 7369186707358918888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_17
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 754
+        width: 354
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1b87c2dcd81f8800800000000000000
+      internalID: 616739010681211674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_18
+      rect:
+        serializedVersion: 2
+        x: 4428
+        y: 728
+        width: 152
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc6458838a062edc0800000000000000
+      internalID: -3611217675578685747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_19
+      rect:
+        serializedVersion: 2
+        x: 2260
+        y: 732
+        width: 132
+        height: 364
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64ad33b1149bc1c20800000000000000
+      internalID: 3178619126297123398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_20
+      rect:
+        serializedVersion: 2
+        x: 3394
+        y: 1074
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baa5e42a3a31d8320800000000000000
+      internalID: 2561725356567321259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_21
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 1048
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6606341386136fbc0800000000000000
+      internalID: -3749755316166500250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_22
+      rect:
+        serializedVersion: 2
+        x: 2492
+        y: 1022
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c2ea65f0ea4cdf0800000000000000
+      internalID: -160812305776497564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_23
+      rect:
+        serializedVersion: 2
+        x: 4594
+        y: 728
+        width: 203
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e93a54dc3eadd4b40800000000000000
+      internalID: 5426233797987640222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_24
+      rect:
+        serializedVersion: 2
+        x: 4676
+        y: 1028
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a57922081679401f0800000000000000
+      internalID: -1079571565644703910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_25
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 726
+        width: 356
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c73b9eaf202a01650800000000000000
+      internalID: 6201634820572427132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_26
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 726
+        width: 232
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d0f8f8d95577a7b0800000000000000
+      internalID: -5213069014905327408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_27
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 732
+        width: 106
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 029b4a31fd9b2beb0800000000000000
+      internalID: -4705494292890339040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_28
+      rect:
+        serializedVersion: 2
+        x: 1968
+        y: 730
+        width: 266
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ed4b10384f7f4030800000000000000
+      internalID: 3481140985002151393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_29
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 734
+        width: 162
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e39f84091a9e7c610800000000000000
+      internalID: 1641537469319543102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_30
+      rect:
+        serializedVersion: 2
+        x: 3388
+        y: 1006
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8186c98a3f2a3d8d0800000000000000
+      internalID: -2822733374041593832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_31
+      rect:
+        serializedVersion: 2
+        x: 3904
+        y: 728
+        width: 192
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d7f6c4bcc3b1cb0800000000000000
+      internalID: -4892249726349509301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_32
+      rect:
+        serializedVersion: 2
+        x: 4150
+        y: 730
+        width: 246
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d092e393abf40e500800000000000000
+      internalID: 423426026215713037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_33
+      rect:
+        serializedVersion: 2
+        x: 2842
+        y: 992
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ffa167afa690e90800000000000000
+      internalID: -7058993316970692747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_34
+      rect:
+        serializedVersion: 2
+        x: 4144
+        y: 982
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 939e9b68a632d39c0800000000000000
+      internalID: -3945958758072850119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_35
+      rect:
+        serializedVersion: 2
+        x: 3392
+        y: 972
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dfc5c1230e933820800000000000000
+      internalID: 2896832721618063317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_36
+      rect:
+        serializedVersion: 2
+        x: 3422
+        y: 706
+        width: 286
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 527b97375391e3ec0800000000000000
+      internalID: -3585400535979018459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_37
+      rect:
+        serializedVersion: 2
+        x: 3438
+        y: 806
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41e1490759cc55060800000000000000
+      internalID: 6941679342872436244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_38
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 512
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 156a5a6c44ee0f7d0800000000000000
+      internalID: -2886545381986556335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_39
+      rect:
+        serializedVersion: 2
+        x: 2444
+        y: 458
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9963d56e321800390800000000000000
+      internalID: -7854135758945438055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_40
+      rect:
+        serializedVersion: 2
+        x: 3768
+        y: 454
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b346b10b6a25ec1e0800000000000000
+      internalID: -2175710694100736965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_41
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 382
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ebce9abe0b89290800000000000000
+      internalID: -7883356621497385329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_42
+      rect:
+        serializedVersion: 2
+        x: 3105
+        y: 294
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cbb1b7152c98c120800000000000000
+      internalID: 2434367281719000009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_43
+      rect:
+        serializedVersion: 2
+        x: 3114
+        y: 288
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e3e6a4d4975f7c20800000000000000
+      internalID: 3206377756445565920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_44
+      rect:
+        serializedVersion: 2
+        x: 3616
+        y: 280
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff1b3c1f46d7e28e0800000000000000
+      internalID: -1716296535475244545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_45
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 3
+        width: 65
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4c8d677b61d66330800000000000000
+      internalID: 3703878003054185546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_46
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27da76e0f9dd52fd0800000000000000
+      internalID: -2367242353902113422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_47
+      rect:
+        serializedVersion: 2
+        x: 1426
+        y: 156
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e239d1840bcbbf650800000000000000
+      internalID: 6267810771726340910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_48
+      rect:
+        serializedVersion: 2
+        x: 2788
+        y: 166
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ce615311dbdc4f0800000000000000
+      internalID: -806780876626662374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tainted_souls_fixed_49
+      rect:
+        serializedVersion: 2
+        x: 2970
+        y: 134
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42a88ad796da65370800000000000000
+      internalID: 8311020830950197796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tainted_souls_fixed_0: -9054770599406001181
+      tainted_souls_fixed_1: 3651623710823199422
+      tainted_souls_fixed_10: 8475719216884306630
+      tainted_souls_fixed_11: -3571062465053265588
+      tainted_souls_fixed_12: -4896967006370446664
+      tainted_souls_fixed_13: -2794624687833587760
+      tainted_souls_fixed_14: 464953033428765758
+      tainted_souls_fixed_15: -4595688281439471951
+      tainted_souls_fixed_16: 7369186707358918888
+      tainted_souls_fixed_17: 616739010681211674
+      tainted_souls_fixed_18: -3611217675578685747
+      tainted_souls_fixed_19: 3178619126297123398
+      tainted_souls_fixed_2: -5495504976945397216
+      tainted_souls_fixed_20: 2561725356567321259
+      tainted_souls_fixed_21: -3749755316166500250
+      tainted_souls_fixed_22: -160812305776497564
+      tainted_souls_fixed_23: 5426233797987640222
+      tainted_souls_fixed_24: -1079571565644703910
+      tainted_souls_fixed_25: 6201634820572427132
+      tainted_souls_fixed_26: -5213069014905327408
+      tainted_souls_fixed_27: -4705494292890339040
+      tainted_souls_fixed_28: 3481140985002151393
+      tainted_souls_fixed_29: 1641537469319543102
+      tainted_souls_fixed_3: 3736790847822140635
+      tainted_souls_fixed_30: -2822733374041593832
+      tainted_souls_fixed_31: -4892249726349509301
+      tainted_souls_fixed_32: 423426026215713037
+      tainted_souls_fixed_33: -7058993316970692747
+      tainted_souls_fixed_34: -3945958758072850119
+      tainted_souls_fixed_35: 2896832721618063317
+      tainted_souls_fixed_36: -3585400535979018459
+      tainted_souls_fixed_37: 6941679342872436244
+      tainted_souls_fixed_38: -2886545381986556335
+      tainted_souls_fixed_39: -7854135758945438055
+      tainted_souls_fixed_4: 9006975277920174551
+      tainted_souls_fixed_40: -2175710694100736965
+      tainted_souls_fixed_41: -7883356621497385329
+      tainted_souls_fixed_42: 2434367281719000009
+      tainted_souls_fixed_43: 3206377756445565920
+      tainted_souls_fixed_44: -1716296535475244545
+      tainted_souls_fixed_45: 3703878003054185546
+      tainted_souls_fixed_46: -2367242353902113422
+      tainted_souls_fixed_47: 6267810771726340910
+      tainted_souls_fixed_48: -806780876626662374
+      tainted_souls_fixed_49: 8311020830950197796
+      tainted_souls_fixed_5: -5392862002608305588
+      tainted_souls_fixed_6: 4643594509916735146
+      tainted_souls_fixed_7: -1875789270848508918
+      tainted_souls_fixed_8: -5075003182789375310
+      tainted_souls_fixed_9: 4054130626886628860
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
