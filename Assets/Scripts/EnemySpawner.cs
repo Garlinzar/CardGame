@@ -64,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
                     Enemy enemyScript = instance.GetComponent<Enemy>();
                     if (enemyScript != null)
                     {
-                        enemyScript.enemyIndex = i + 1; // Index 1–3 für Damage Popups
+                        enemyScript.enemyIndex = i; // Index 1–3 für Damage Popups
                         activeEnemies.Add(enemyScript);
                     }
                 }
