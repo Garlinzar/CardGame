@@ -15,6 +15,8 @@ public class DeckManager : MonoBehaviour
 {
     [Header("Deck Setup")]
     public List<CardEntry> starterDeckEntries;
+    [SerializeField] private GameObject heroObject;
+
 
     [Header("Runtime")]
     public List<CardData> currentDeck = new List<CardData>();
@@ -30,11 +32,26 @@ public class DeckManager : MonoBehaviour
     public AudioClip cardPlaceSound; // Der einheitliche Sound fürs Kartenlegen
     public AudioSource audioSource;
 
-
+    
 
     void Start()
     {
-        BuildDeck(); 
+       
+            if (heroObject == null)
+            {
+                GameObject found = GameObject.Find("Hero");
+                if (found != null)
+                {
+                    Debug.LogWarning("⚠️ heroObject wurde nicht gesetzt – automatisch gesetzt auf: " + found.name);
+                    heroObject = found;
+                }
+                else
+                {
+                    Debug.LogError("❌ Hero konnte nicht automatisch gefunden werden!");
+                }
+            }
+
+        BuildDeck();
     }
 
     public void BuildDeck()
@@ -171,6 +188,7 @@ public class DeckManager : MonoBehaviour
 
     private IEnumerator PlayCardWithSounds(CardData cardData, int damage, int healAmount, int bonusManaNextTurn)
     {
+
         // 🔊 Zuerst globaler Kartenlegen-Sound
         if (cardPlaceSound != null && audioSource != null)
         {
@@ -184,7 +202,29 @@ public class DeckManager : MonoBehaviour
             AudioSource.PlayClipAtPoint(cardData.playSound, Camera.main.transform.position);
         }
 
-        // Schaden an Gegner zufügen (nur wenn damage > 0)
+        // ➕ Schaden an Gegner zufügen (nur wenn damage > 0)
+        // ➕ Hero schlägt zu (Animation)
+        if (heroObject != null)
+        {
+            Debug.Log("🧠 heroObject ist NICHT null – prüfen Damage: " + damage);
+
+            PunchMoveSimple punch = heroObject.GetComponent<PunchMoveSimple>();
+            if (punch != null)
+            {
+                Debug.Log("✅ PunchMoveSimple gefunden – führe Punch aus!");
+                punch.DoPunch();
+            }
+            else
+            {
+                Debug.LogWarning("❌ PunchMoveSimple nicht gefunden am Hero!");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("❌ heroObject ist NULL!");
+        }
+
+        // ➕ Schaden an Gegner zufügen (nur wenn damage > 0)
         if (damage > 0)
         {
             EnemySpawner spawner = EnemySpawner.Instance;
@@ -201,7 +241,8 @@ public class DeckManager : MonoBehaviour
             }
         }
 
-        // Spieler heilen
+
+        // ➕ Spieler heilen
         if (healAmount > 0)
         {
             if (gameManager.playerHealthManager != null)
@@ -210,7 +251,7 @@ public class DeckManager : MonoBehaviour
             }
         }
 
-        // Bonusmana für nächste Runde speichern
+        // ➕ Bonusmana für nächste Runde speichern
         if (bonusManaNextTurn > 0)
         {
             gameManager.AddBonusMana(bonusManaNextTurn);
