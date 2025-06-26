@@ -7,16 +7,19 @@ public class SimpleMenuController : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject tutorialPanel;
     [SerializeField] private GameObject creditsPanel;
 
     [Header("Main Menu Buttons")]
     [SerializeField] private Button startGameButton;
     [SerializeField] private Button optionsButton;
+    [SerializeField] private Button tutorialButton;
     [SerializeField] private Button creditsButton;
     [SerializeField] private Button quitButton;
 
     [Header("Back Buttons")]
     [SerializeField] private Button optionsBackButton;
+    [SerializeField] private Button tutorialBackButton;
     [SerializeField] private Button creditsBackButton;
 
     [Header("Audio Settings")]
@@ -32,11 +35,13 @@ public class SimpleMenuController : MonoBehaviour
         // Set up main menu button listeners
         if (startGameButton) startGameButton.onClick.AddListener(OnStartGameClicked);
         if (optionsButton) optionsButton.onClick.AddListener(OnOptionsClicked);
+        if (tutorialButton) tutorialButton.onClick.AddListener(() => ShowPanel(tutorialPanel));
         if (creditsButton) creditsButton.onClick.AddListener(OnCreditsClicked);
         if (quitButton) quitButton.onClick.AddListener(QuitGame);
 
         // Set up back button listeners
         if (optionsBackButton) optionsBackButton.onClick.AddListener(ReturnToMainMenu);
+        if (tutorialBackButton) tutorialBackButton.onClick.AddListener(ReturnToMainMenu);
         if (creditsBackButton) creditsBackButton.onClick.AddListener(ReturnToMainMenu);
 
         // Set up audio control listeners
@@ -76,6 +81,11 @@ public class SimpleMenuController : MonoBehaviour
         ShowPanel(optionsPanel);
     }
 
+    private void OnTutorialClicked()
+    {
+        ShowPanel(tutorialPanel);
+    }
+
     private void OnCreditsClicked()
     {
         ShowPanel(creditsPanel);
@@ -91,6 +101,7 @@ public class SimpleMenuController : MonoBehaviour
         // Hide all panels
         if (mainMenuPanel) mainMenuPanel.SetActive(false);
         if (optionsPanel) optionsPanel.SetActive(false);
+        if (tutorialPanel) tutorialPanel.SetActive(false);
         if (creditsPanel) creditsPanel.SetActive(false);
 
         // Show the selected panel
