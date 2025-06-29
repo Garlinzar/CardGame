@@ -1529,7 +1529,7 @@ MonoBehaviour:
   optionsButton: {fileID: 764342073}
   tutorialButton: {fileID: 1370375473}
   creditsButton: {fileID: 0}
-  quitButton: {fileID: 2067688309}
+  quitButton: {fileID: 1072908387}
   optionsBackButton: {fileID: 468747431}
   tutorialBackButton: {fileID: 44781382}
   creditsBackButton: {fileID: 1074080838}
