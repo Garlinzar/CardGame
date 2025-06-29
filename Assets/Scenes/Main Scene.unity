@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 1209842027}
   healthText: {fileID: 1000503316}
+  hitEffect: {fileID: 734785184}
   maxHealth: 100
   currentHealth: 100
   gameOverManager: {fileID: 1996516167}
@@ -1144,6 +1145,7 @@ GameObject:
   - component: {fileID: 734785181}
   - component: {fileID: 734785182}
   - component: {fileID: 734785183}
+  - component: {fileID: 734785184}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -1233,7 +1235,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fa84b6f479ff04d8bfd514b2758d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 0.1
+  moveDistance: 0.5
+  duration: 0.2
+--- !u!114 &734785184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734785180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43031b30fa5b41439cd19eb7a9d85bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 0.5
   duration: 0.2
 --- !u!1 &752808209
 GameObject:

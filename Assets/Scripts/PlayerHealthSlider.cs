@@ -6,6 +6,7 @@ public class PlayerHealthManager : MonoBehaviour
 {
     public Slider healthSlider;
     public TextMeshProUGUI healthText;
+    public PlayerHitEffect hitEffect;
 
     public int maxHealth = 20;
     public int currentHealth;
@@ -21,14 +22,22 @@ public class PlayerHealthManager : MonoBehaviour
         UpdateHealthUI();
         Debug.Log("[PlayerHealthManager] Start() aufgerufen – currentHealth: " + currentHealth);
     }
+    public static PlayerHealthManager Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     public void TakeDamage(int damage)
     {
         Debug.Log("[PlayerHealthManager] TakeDamage() aufgerufen mit damage: " + damage);
 
         currentHealth -= damage;
-        if (currentHealth < 0) currentHealth = 0;
-        UpdateHealthUI();
+        if (currentHealth < 0) currentHealth = 0;{
+            UpdateHealthUI();
+
+        }
 
         // ➡️ Popup auslösen (in rot für Schaden)
         if (damagePopupSpawner != null)
