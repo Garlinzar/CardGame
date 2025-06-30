@@ -3,12 +3,12 @@ using UnityEngine.UI;
 
 public class DrawCard : MonoBehaviour
 {
-    public GameObject cardPrefab;          // Dein Karten-Image-Prefab
-    public Transform cardHolder;           // Der Container im UI für die Karten
+    public GameObject cardPrefab;          
+    public Transform cardHolder;           
 
     public void DrawCards()
     {
-        // Vorherige Karten entfernen (optional)
+       
         foreach (Transform child in cardHolder)
         {
             Destroy(child.gameObject);

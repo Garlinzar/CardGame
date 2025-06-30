@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;  // WICHTIG: Für Coroutine
+using System.Collections; 
 
 public class GameManager : MonoBehaviour
 {

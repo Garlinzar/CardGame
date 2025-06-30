@@ -189,39 +189,39 @@ public class DeckManager : MonoBehaviour
     private IEnumerator PlayCardWithSounds(CardData cardData, int damage, int healAmount, int bonusManaNextTurn)
     {
 
-        // 🔊 Zuerst globaler Kartenlegen-Sound
+        //  Zuerst globaler Kartenlegen-Sound
         if (cardPlaceSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(cardPlaceSound);
             yield return new WaitForSeconds(cardPlaceSound.length);
         }
 
-        // 🔊 Danach optional Kartensound der Karte
+        //  Danach optional Kartensound der Karte
         if (cardData.playSound != null)
         {
             AudioSource.PlayClipAtPoint(cardData.playSound, Camera.main.transform.position);
         }
 
-        // ➕ Schaden an Gegner zufügen (nur wenn damage > 0)
-        // ➕ Hero schlägt zu (Animation)
+        //  Schaden an Gegner zufügen (nur wenn damage > 0)
+        //  Hero schlägt zu (Animation)
         if (heroObject != null)
         {
-            Debug.Log("🧠 heroObject ist NICHT null – prüfen Damage: " + damage);
+            Debug.Log(" heroObject ist NICHT null – prüfen Damage: " + damage);
 
             PunchMoveSimple punch = heroObject.GetComponent<PunchMoveSimple>();
             if (punch != null && damage > 0)
             {
-                Debug.Log("✅ PunchMoveSimple gefunden – führe Punch aus!");
+                Debug.Log(" PunchMoveSimple gefunden – führe Punch aus!");
                 punch.DoPunch();
             }
             else
             {
-                Debug.LogWarning("❌ PunchMoveSimple nicht gefunden am Hero!");
+                Debug.LogWarning(" PunchMoveSimple nicht gefunden am Hero!");
             }
         }
         else
         {
-            Debug.LogWarning("❌ heroObject ist NULL!");
+            Debug.LogWarning(" heroObject ist NULL!");
         }
 
         // ➕ Schaden an Gegner zufügen (nur wenn damage > 0)
@@ -242,7 +242,7 @@ public class DeckManager : MonoBehaviour
         }
 
 
-        // ➕ Spieler heilen
+        //  Spieler heilen
         if (healAmount > 0)
         {
             if (gameManager.playerHealthManager != null)
@@ -251,7 +251,7 @@ public class DeckManager : MonoBehaviour
             }
         }
 
-        // ➕ Bonusmana für nächste Runde speichern
+        //  Bonusmana für nächste Runde speichern
         if (bonusManaNextTurn > 0)
         {
             gameManager.AddBonusMana(bonusManaNextTurn);

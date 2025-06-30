@@ -20,16 +20,16 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Boss")]
     public GameObject bossPrefab;
-    public Transform bossSpawnPoint;  // Mittlerer Slot
+    public Transform bossSpawnPoint;  
 
     [Header("UI")]
-    public TextMeshProUGUI waveCounterText; // 🔥 Hier für die Anzeige
+    public TextMeshProUGUI waveCounterText; 
 
     [SerializeField]
     public List<Enemy> activeEnemies = new List<Enemy>();
 
-    public int currentWave = 1; // Neu: Zähler für die aktuelle Welle
-    public int maxWaves = 10;   // Neu: Maximale Wellenzahl (inkl. Boss)
+    public int currentWave = 1; 
+    public int maxWaves = 10;   
 
     void Awake()
     {

@@ -63,20 +63,20 @@ public class Enemy : MonoBehaviour
         {
             if (enemy != null && enemy.currentHealth > 0)
             {
-                // 🥊 Gegner-Angriffsanimation
+                // Gegner-Angriffsanimation
                 EnemyAttackEffect attack = enemy.GetComponent<EnemyAttackEffect>();
                 if (attack != null)
                 {
                     attack.PlayAttack();
                 }
 
-                // 👊 Spieler schädigen und Hit-Effekt auslösen
+                // Spieler schädigen und Hit-Effekt auslösen
                 var player = PlayerHealthManager.Instance;
                 if (player != null)
                 {
                     player.TakeDamage(enemy.attackDamage);
 
-                    // 🔁 Hole den Hit-Effekt
+                    // Hole den Hit-Effekt
                     if (player.hitEffect != null)
                     {
                         player.hitEffect.PlayHit();

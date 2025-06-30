@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Zerschmetterer
   m_EditorClassIdentifier: 
   cardName: Zerschmetterer
-  cardImage: {fileID: -6017837495927632980, guid: 04699fd263dad7c4f828cef835dce247, type: 3}
+  cardImage: {fileID: 2628489477681342773, guid: ac1ccf2c1b6a2f242b5272c1d833e73e, type: 3}
   manaCost: 3
   damage: 3
   healAmount: 0

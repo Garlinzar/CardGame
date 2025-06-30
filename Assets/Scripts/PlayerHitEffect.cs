@@ -1,4 +1,4 @@
-// Scripts/PlayerHitEffect.cs
+
 using UnityEngine;
 using DG.Tweening;
 

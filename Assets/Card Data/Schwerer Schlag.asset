@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Schwerer Schlag
   m_EditorClassIdentifier: 
   cardName: Schwerer Schlag
-  cardImage: {fileID: -7073178900922276601, guid: 1c6480e6efbb5bb44ad60d29909de292, type: 3}
+  cardImage: {fileID: -8207107503912481335, guid: 78d2cc44fdfe1a944899c5c7cdb779b1, type: 3}
   manaCost: 2
   damage: 2
   healAmount: 0

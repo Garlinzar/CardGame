@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7de49a3bd43a93e418417cc75b37edb9
+guid: 31395900f134d6f439cbf3bc7005ce2d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6883316174463589455
-    second: Basis 2 (1)_0
+      213: 7964323318374200688
+    second: Meditate 3 (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,24 +109,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Basis 2 (1)_0
+      name: Meditate 3 (1)_0
       rect:
         serializedVersion: 2
         x: 228
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1b3a560a86c8970a0800000000000000
-      internalID: -6883316174463589455
+      spriteID: 075fd0c7cd5f68e60800000000000000
+      internalID: 7964323318374200688
       vertices: []
       indices: 
       edges: []
@@ -160,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Basis 2 (1)_0: -6883316174463589455
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

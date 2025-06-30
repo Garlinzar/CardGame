@@ -9,19 +9,19 @@ public class GameOverManager : MonoBehaviour
     private void Start()
     {
         if (gameOverPanel != null)
-            gameOverPanel.SetActive(false); // Panel am Anfang deaktivieren
+            gameOverPanel.SetActive(false); 
     }
 
     public void ShowGameOver()
     {
-        Time.timeScale = 0f; // Spiel pausieren (optional)
+        Time.timeScale = 0f; 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
     }
 
     public void ReturnToMainMenu()
     {
-        Time.timeScale = 1f; // Zeit zurücksetzen
+        Time.timeScale = 1f; 
         SceneManager.LoadScene(mainMenuSceneName);
     }
 }

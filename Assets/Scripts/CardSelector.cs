@@ -14,7 +14,7 @@ public class CardSelector : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
 
     void Start()
     {
-        // Falls kein Ziel gesetzt wurde, benutze das eigene Objekt
+        
         if (visualTarget == null)
         {
             visualTarget = transform;

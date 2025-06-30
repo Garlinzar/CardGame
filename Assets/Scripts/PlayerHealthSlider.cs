@@ -15,7 +15,7 @@ public class PlayerHealthManager : MonoBehaviour
     public GameOverManager gameOverManager;
 
     [Header("Damage Popup")]
-    public DamagePopupSpawner damagePopupSpawner;  // Referenz zum Spawner-Objekt
+    public DamagePopupSpawner damagePopupSpawner;  
 
     void Start()
     {
@@ -40,7 +40,7 @@ public class PlayerHealthManager : MonoBehaviour
 
         }
 
-        // ➡️ Popup auslösen (in rot für Schaden)
+        
         if (damagePopupSpawner != null)
         {
             Vector3 popupPosition = transform.position + Vector3.up * 2.0f;

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Kopfschuss
   m_EditorClassIdentifier: 
   cardName: Kopfschuss
-  cardImage: {fileID: 6999797581677937500, guid: ac50b4cc429d3d34885a3051b3684908, type: 3}
+  cardImage: {fileID: 6312282112666246956, guid: 4312189b4bf3a5a4db2484efbdc131a6, type: 3}
   manaCost: 2
   damage: 2
+  healAmount: 0
+  bonusManaNextTurn: 0
+  playSound: {fileID: 0}

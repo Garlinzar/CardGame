@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stich
   m_EditorClassIdentifier: 
   cardName: Stich
-  cardImage: {fileID: -6883316174463589455, guid: 7de49a3bd43a93e418417cc75b37edb9, type: 3}
+  cardImage: {fileID: -8044153358517321013, guid: 81c269c1731c2524caa39b52579e1327, type: 3}
   manaCost: 1
   damage: 1
   healAmount: 0

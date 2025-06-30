@@ -1,5 +1,5 @@
 using UnityEngine;
-using DG.Tweening; // Wichtig!
+using DG.Tweening; 
 
 public class PunchMoveSimple : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class PunchMoveSimple : MonoBehaviour
 
     public void DoPunch()
     {
-        // Bewege das GameObject nach rechts und dann zurück (Punch-Effekt)
+        
         transform.DOPunchPosition(Vector3.right * moveDistance, duration, 10, 1f);
     }
 }
