@@ -54,8 +54,11 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        EnemySpawner.Instance.activeEnemies.Remove(this);
         Destroy(gameObject);
+        EnemySpawner.Instance.ReindexEnemies(); // <--- Neu
     }
+
 
     public IEnumerator EnemiesAttackOneAfterAnother()
     {

@@ -14,12 +14,19 @@ public class GameManager : MonoBehaviour
     private int pendingBonusMana = 0;
     public TextMeshProUGUI bonusManaText;
 
+
     [Header("Referenzen")]
     public DeckManager deckManager;
     public PlayerHealthManager playerHealthManager;
+    public Button endTurnButton;
+
 
     [Header("Enemy Attack Settings")]
     public float enemyAttackDelay = 0.5f; // Delay in Sekunden zwischen den Attacken
+
+    private bool canEndTurn = true;
+    public float endTurnCooldown = 1f;
+
 
     void Start()
     {
@@ -83,6 +90,18 @@ public class GameManager : MonoBehaviour
 
     public void OnEndTurn()
     {
+        if (!canEndTurn)
+        {
+            Debug.Log("End Turn ist noch im Cooldown!");
+            return;
+        }
+
+        canEndTurn = false;
+        if (endTurnButton != null)
+        {
+            endTurnButton.interactable = false;
+        }
+
         Debug.Log("Zug beendet. Mana wird zurückgesetzt und Gegner greifen an.");
 
         ResetMana();
@@ -95,7 +114,19 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("Keine Gegner gefunden oder EnemySpawner.Instance ist null.");
         }
+
+        StartCoroutine(ResetEndTurnCooldown());
     }
+    private IEnumerator ResetEndTurnCooldown()
+    {
+        yield return new WaitForSeconds(endTurnCooldown);
+        canEndTurn = true;
+        if (endTurnButton != null)
+        {
+            endTurnButton.interactable = true;
+        }
+    }
+
 
     private IEnumerator EnemyAttackSequence()
     {

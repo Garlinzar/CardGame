@@ -675,7 +675,9 @@ MonoBehaviour:
   bonusManaText: {fileID: 883450122}
   deckManager: {fileID: 250353460}
   playerHealthManager: {fileID: 10757460}
+  endTurnButton: {fileID: 2045173105}
   enemyAttackDelay: 1
+  endTurnCooldown: 1
 --- !u!1 &385308913
 GameObject:
   m_ObjectHideFlags: 0

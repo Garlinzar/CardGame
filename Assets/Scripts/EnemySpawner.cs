@@ -46,6 +46,17 @@ public class EnemySpawner : MonoBehaviour
     {
         SpawnEnemies();
     }
+    public void ReindexEnemies()
+    {
+        for (int i = 0; i < activeEnemies.Count; i++)
+        {
+            if (activeEnemies[i] != null)
+            {
+                activeEnemies[i].enemyIndex = i;
+            }
+        }
+    }
+
 
     public void SpawnEnemies()
     {
