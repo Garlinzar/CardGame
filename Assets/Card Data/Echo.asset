@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Echo
   cardImage: {fileID: 7793930305770317707, guid: 6f3a1aa5463358140b1e890ddf52d562, type: 3}
-  manaCost: 1
-  damage: 0
+  manaCost: 2
+  damage: 1
+  healAmount: 0
+  bonusManaNextTurn: 1
+  playSound: {fileID: 0}

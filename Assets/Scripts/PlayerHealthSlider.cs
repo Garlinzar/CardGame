@@ -7,6 +7,7 @@ public class PlayerHealthManager : MonoBehaviour
     public Slider healthSlider;
     public TextMeshProUGUI healthText;
     public PlayerHitEffect hitEffect;
+ 
 
     public int maxHealth = 20;
     public int currentHealth;

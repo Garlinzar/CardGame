@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d0c99970f3f62024ca0b9a820f0e3123
+guid: 186b3bb58e655514090c62bc6670a27f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3050307441507602920
-    second: Basis 3_0
+      213: 2070883804124906345
+    second: Play Cards_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Basis 3_0
+      name: Play Cards_0
       rect:
         serializedVersion: 2
-        x: 228
-        y: 94
-        width: 606
-        height: 804
+        x: 17
+        y: 28
+        width: 916
+        height: 229
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81e653d0b812ba5d0800000000000000
-      internalID: -3050307441507602920
+      spriteID: 96389fb09d14dbc10800000000000000
+      internalID: 2070883804124906345
       vertices: []
       indices: 
       edges: []
@@ -160,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Basis 3_0: -3050307441507602920
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -209,7 +209,7 @@ public class DeckManager : MonoBehaviour
             Debug.Log("🧠 heroObject ist NICHT null – prüfen Damage: " + damage);
 
             PunchMoveSimple punch = heroObject.GetComponent<PunchMoveSimple>();
-            if (punch != null)
+            if (punch != null && damage > 0)
             {
                 Debug.Log("✅ PunchMoveSimple gefunden – führe Punch aus!");
                 punch.DoPunch();
