@@ -16,6 +16,7 @@ public class SimpleMenuController : MonoBehaviour
     [SerializeField] private Button tutorialButton;
     [SerializeField] private Button creditsButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private Button loadMainMenuButton;
 
     [Header("Back Buttons")]
     [SerializeField] private Button optionsBackButton;
@@ -38,6 +39,7 @@ public class SimpleMenuController : MonoBehaviour
         if (tutorialButton) tutorialButton.onClick.AddListener(() => ShowPanel(tutorialPanel));
         if (creditsButton) creditsButton.onClick.AddListener(OnCreditsClicked);
         if (quitButton) quitButton.onClick.AddListener(QuitGame);
+        if (loadMainMenuButton) loadMainMenuButton.onClick.AddListener(loaddMainMenuClicked);
 
         // Set up back button listeners
         if (optionsBackButton) optionsBackButton.onClick.AddListener(ReturnToMainMenu);
@@ -94,6 +96,13 @@ public class SimpleMenuController : MonoBehaviour
     private void ReturnToMainMenu()
     {
         ShowPanel(mainMenuPanel);
+    }
+
+    private void loaddMainMenuClicked()
+    {
+        Debug.Log("Loading main menu");
+        // Load the main menu scene
+        SceneManager.LoadScene("Main Menu");
     }
 
     private void ShowPanel(GameObject panelToShow)
