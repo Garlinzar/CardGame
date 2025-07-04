@@ -4,10 +4,6 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-    //Currency
-    public int soulReward = 10;
-
-
     [Header("Health Settings")]
     public int maxHealth = 10;
     public int currentHealth = 10;
@@ -18,8 +14,14 @@ public class Enemy : MonoBehaviour
     [Header("UI")]
     public Slider healthSlider;
 
+    [Header("Loot")]
+    public int soulValue = 10; // Anzahl Seelen, die dieser Gegner beim Tod gibt
+    public Vector2Int goldDropRange = new Vector2Int(5, 20); // Gold-Min-Max
+    private Currency Currency;
+
     void Start()
     {
+        Currency = FindFirstObjectByType<Currency>();
         currentHealth = maxHealth;
         UpdateHealthUI();
     }
@@ -58,14 +60,32 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        
+
+
+        if (Currency != null)
+        {
+            Currency.AddSoul(soulValue);
+            Debug.Log($"Du hast{soulValue} Seelen absorbiert!");
+
+            float dropChance = Random.value; 
+
+            if (dropChance <= 0.7f)
+            {
+                int goldAmount = Random.Range(goldDropRange.x, goldDropRange.y + 1);
+                Currency.AddGold(goldAmount);
+                Debug.Log($"Gegner hat {goldAmount} Gold gedroppt!");
+            }
+            else
+            {
+                Debug.Log("Kein Gold gedroppt (Chance verfehlt)");
+            }
+        }
+
 
         EnemySpawner.Instance.activeEnemies.Remove(this);
         Destroy(gameObject);
         EnemySpawner.Instance.ReindexEnemies(); // <--- Neu
-        // neu
-        // Belohnung dem Spieler geben
-        SoulCurrency.Instance.AddSouls(soulReward);
+   
     }
 
 

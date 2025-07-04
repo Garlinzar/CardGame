@@ -14,6 +14,13 @@ public class GameOverManager : MonoBehaviour
 
     public void ShowGameOver()
     {
+
+        Currency currency = FindFirstObjectByType<Currency>();
+        if (currency != null)
+        {
+            currency.ResetGold();
+        }
+
         Time.timeScale = 0f; 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
