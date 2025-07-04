@@ -58,13 +58,14 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        // neu
-        // Belohnung dem Spieler geben
-        SoulCurrency.Instance.AddSouls(soulReward);
+        
 
         EnemySpawner.Instance.activeEnemies.Remove(this);
         Destroy(gameObject);
         EnemySpawner.Instance.ReindexEnemies(); // <--- Neu
+        // neu
+        // Belohnung dem Spieler geben
+        SoulCurrency.Instance.AddSouls(soulReward);
     }
 
 
