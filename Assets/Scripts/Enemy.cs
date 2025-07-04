@@ -4,6 +4,10 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
+    //Currency
+    public int soulReward = 10;
+
+
     [Header("Health Settings")]
     public int maxHealth = 10;
     public int currentHealth = 10;
@@ -54,6 +58,10 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        // neu
+        // Belohnung dem Spieler geben
+        SoulCurrency.Instance.AddSouls(soulReward);
+
         EnemySpawner.Instance.activeEnemies.Remove(this);
         Destroy(gameObject);
         EnemySpawner.Instance.ReindexEnemies(); // <--- Neu
