@@ -15,7 +15,10 @@ MonoBehaviour:
   cardName: Echo
   cardImage: {fileID: 7985972217581850828, guid: 1d7dd568b771ba947b47617730420b08, type: 3}
   manaCost: 2
-  damage: 1
-  healAmount: 0
-  bonusManaNextTurn: 1
+  damage: 0
+  healPercent: 0
+  bonusManaNextTurn: 0
   playSound: {fileID: 0}
+  doubleDamageIfFullHealth: 0
+  splitDamageOnTwoEnemies: 0
+  isDoubleNextAttackCard: 1

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Linq;
 
 [System.Serializable]
 public class CardEntry
@@ -32,7 +33,8 @@ public class DeckManager : MonoBehaviour
     public AudioClip cardPlaceSound; // Der einheitliche Sound fürs Kartenlegen
     public AudioSource audioSource;
 
-    
+    public bool doubleAttackNextDamageCard = false;
+
 
     void Start()
     {
@@ -173,9 +175,18 @@ public class DeckManager : MonoBehaviour
         CardDataHolder holder = CardSelector.selectedCard.GetComponent<CardDataHolder>();
         if (holder == null || holder.cardData == null) return;
 
+        if (holder.cardData.isDoubleNextAttackCard)
+        {
+            doubleAttackNextDamageCard = true;
+            Debug.Log("🔁 Doppelschlag-Effekt aktiviert für nächste Angriffskarte!");
+            Destroy(CardSelector.selectedCard);
+            CardSelector.selectedCard = null;
+            return; // Keine weiteren Effekte bei dieser Karte
+        }
+
         int manaCost = holder.cardData.manaCost;
         int damage = holder.cardData.damage;
-        int healAmount = holder.cardData.healAmount;
+        int healAmount = holder.cardData.healPercent;
         int bonusManaNextTurn = holder.cardData.bonusManaNextTurn;
 
         if (!gameManager.TrySpendMana(manaCost)) return;
@@ -186,28 +197,26 @@ public class DeckManager : MonoBehaviour
         CardSelector.selectedCard = null;
     }
 
+
     private IEnumerator PlayCardWithSounds(CardData cardData, int damage, int healAmount, int bonusManaNextTurn)
     {
-
-        //  Zuerst globaler Kartenlegen-Sound
+        // Zuerst globaler Kartenlegen-Sound
         if (cardPlaceSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(cardPlaceSound);
             yield return new WaitForSeconds(cardPlaceSound.length);
         }
 
-        //  Danach optional Kartensound der Karte
+        // Danach optional Kartensound der Karte
         if (cardData.playSound != null)
         {
             AudioSource.PlayClipAtPoint(cardData.playSound, Camera.main.transform.position);
         }
 
-        //  Schaden an Gegner zufügen (nur wenn damage > 0)
-        //  Hero schlägt zu (Animation)
+        // Hero-Animation
         if (heroObject != null)
         {
             Debug.Log(" heroObject ist NICHT null – prüfen Damage: " + damage);
-
             PunchMoveSimple punch = heroObject.GetComponent<PunchMoveSimple>();
             if (punch != null && damage > 0)
             {
@@ -224,40 +233,111 @@ public class DeckManager : MonoBehaviour
             Debug.LogWarning(" heroObject ist NULL!");
         }
 
-        // ➕ Schaden an Gegner zufügen (nur wenn damage > 0)
+        // Angriff durchführen (nur wenn damage > 0)
+        int numberOfAttacks = 1;
+        if (damage > 0 && doubleAttackNextDamageCard)
+        {
+            numberOfAttacks = 2;
+            doubleAttackNextDamageCard = false;
+        }
+
         if (damage > 0)
         {
             EnemySpawner spawner = EnemySpawner.Instance;
-            if (spawner != null && spawner.activeEnemies != null)
+            if (spawner == null || spawner.activeEnemies == null) yield break;
+
+            for (int i = 0; i < numberOfAttacks; i++)
             {
-                foreach (Enemy enemy in spawner.activeEnemies)
+                // Optional Sound beim zweiten Angriff
+                if (i > 0 && cardData.playSound != null)
                 {
-                    if (enemy != null && enemy.currentHealth > 0)
+                    AudioSource.PlayClipAtPoint(cardData.playSound, Camera.main.transform.position);
+                }
+
+                // Spezialeffekt: Schaden auf 2 zufällige Gegner aufteilen
+                if (cardData.splitDamageOnTwoEnemies)
+                {
+                    List<Enemy> aliveEnemies = new List<Enemy>();
+                    foreach (Enemy e in spawner.activeEnemies)
                     {
-                        enemy.TakeDamage(damage);
-                        break;
+                        if (e != null && e.currentHealth > 0)
+                        {
+                            aliveEnemies.Add(e);
+                        }
+                    }
+
+                    if (aliveEnemies.Count >= 2)
+                    {
+                        List<Enemy> targets = aliveEnemies.OrderBy(x => Random.value).Take(2).ToList();
+
+                        foreach (Enemy target in targets)
+                        {
+                            int actualDamage = damage;
+
+                            if (cardData.doubleDamageIfFullHealth && target.currentHealth == target.maxHealth)
+                            {
+                                actualDamage *= 2;
+                                Debug.Log("🎯 Doppelschaden aktiviert – Gegner hat volles Leben!");
+                            }
+
+                            target.TakeDamage(actualDamage);
+                        }
+                    }
+                    else if (aliveEnemies.Count == 1)
+                    {
+                        Enemy target = aliveEnemies[0];
+                        int actualDamage = damage;
+
+                        if (cardData.doubleDamageIfFullHealth && target.currentHealth == target.maxHealth)
+                        {
+                            actualDamage *= 2;
+                            Debug.Log("🎯 Doppelschaden aktiviert – Gegner hat volles Leben!");
+                        }
+
+                        target.TakeDamage(actualDamage);
                     }
                 }
+                else
+                {
+                    // Standardfall: erster lebender Gegner wird angegriffen
+                    foreach (Enemy enemy in spawner.activeEnemies)
+                    {
+                        if (enemy != null && enemy.currentHealth > 0)
+                        {
+                            int actualDamage = damage;
+
+                            if (cardData.doubleDamageIfFullHealth && enemy.currentHealth == enemy.maxHealth)
+                            {
+                                actualDamage *= 2;
+                                Debug.Log("🎯 Doppelschaden aktiviert – Gegner hat volles Leben!");
+                            }
+
+                            enemy.TakeDamage(actualDamage);
+                            break;
+                        }
+                    }
+                }
+
+                // Optional Delay zwischen den zwei Angriffen
+                yield return new WaitForSeconds(0.5f);
             }
         }
 
-
-        //  Spieler heilen
+        // Spieler heilen
         if (healAmount > 0)
         {
             if (gameManager.playerHealthManager != null)
             {
-                gameManager.playerHealthManager.Heal(healAmount);
+                int healingAmount = Mathf.RoundToInt(gameManager.playerHealthManager.maxHealth * (cardData.healPercent / 100f));
+                gameManager.playerHealthManager.Heal(healingAmount);
             }
         }
 
-        //  Bonusmana für nächste Runde speichern
+        // Bonusmana für nächste Runde speichern
         if (bonusManaNextTurn > 0)
         {
             gameManager.AddBonusMana(bonusManaNextTurn);
         }
     }
-
-
 
 }

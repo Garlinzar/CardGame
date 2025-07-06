@@ -7,7 +7,13 @@ public class CardData : ScriptableObject
     public Sprite cardImage;
     public int manaCost;
     public int damage;
-    public int healAmount; // Heilt den Spieler
+    public int healPercent; // Heilt den Spieler
     public int bonusManaNextTurn; // Gibt Bonusmana für nächste Runde
     public AudioClip playSound;
+
+    [Header("Spezialeffekte")]
+    public bool doubleDamageIfFullHealth;
+    public bool splitDamageOnTwoEnemies;
+    public bool isDoubleNextAttackCard = false;
+
 }
