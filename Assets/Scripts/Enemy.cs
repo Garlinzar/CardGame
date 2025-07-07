@@ -17,13 +17,23 @@ public class Enemy : MonoBehaviour
     [Header("Loot")]
     public int soulValue = 10; // Anzahl Seelen, die dieser Gegner beim Tod gibt
     public Vector2Int goldDropRange = new Vector2Int(5, 20); // Gold-Min-Max
-    private Currency Currency;
+
+    // Referenzen zu den benötigten Skripten
+    private Currency currency; // Um Gold und Seelen hinzuzufügen
+    private UpgradeManager upgradeManager; // Um das Greed-Level abzufragen
 
     void Start()
     {
-        Currency = FindFirstObjectByType<Currency>();
+        // Finde die Instanzen der benötigten Skripte in der Szene
+        currency = FindFirstObjectByType<Currency>();
+        upgradeManager = FindFirstObjectByType<UpgradeManager>(); // Füge diese Zeile hinzu!
+
         currentHealth = maxHealth;
         UpdateHealthUI();
+
+        // Optional: Überprüfen, ob Referenzen gefunden wurden
+        if (currency == null) Debug.LogError("Currency script not found in scene!");
+        if (upgradeManager == null) Debug.LogWarning("UpgradeManager script not found in scene! Greed bonus might not work.");
     }
 
     public void TakeDamage(int damage)
@@ -60,20 +70,37 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-
-
-        if (Currency != null)
+        if (currency != null) // Verwende 'currency' (kleingeschrieben) wie in Start() zugewiesen
         {
-            Currency.AddSoul(soulValue);
-            Debug.Log($"Du hast{soulValue} Seelen absorbiert!");
+            currency.AddSoul(soulValue);
+            Debug.Log($"Du hast {soulValue} Seelen absorbiert!");
 
-            float dropChance = Random.value; 
+            float dropChance = Random.value;
 
             if (dropChance <= 0.7f)
             {
-                int goldAmount = Random.Range(goldDropRange.x, goldDropRange.y + 1);
-                Currency.AddGold(goldAmount);
-                Debug.Log($"Gegner hat {goldAmount} Gold gedroppt!");
+                int baseGoldAmount = Random.Range(goldDropRange.x, goldDropRange.y + 1);
+                int bonusGoldAmount = 0;
+
+                // NEUER TEIL: Greed Upgrade Bonus berechnen
+                if (upgradeManager != null)
+                {
+                    int greedLevel = upgradeManager.GetUpgradeLevel("Greed");
+                    if (greedLevel > 0)
+                    {
+                        // Pro Greed Level: 1-2*level zusätzliches Gold
+                        // Level 1: 1-2 Gold
+                        // Level 2: 1-4 Gold
+                        // Level 3: 1-6 Gold
+                        // Level N: 1-(2*N) Gold
+                        bonusGoldAmount = Random.Range(1, (2 * greedLevel) + 1);
+                        Debug.Log($"Greed Level {greedLevel}: Bonus Gold {bonusGoldAmount}");
+                    }
+                }
+
+                int totalGoldAmount = baseGoldAmount + bonusGoldAmount;
+                currency.AddGold(totalGoldAmount);
+                Debug.Log($"Gegner hat {totalGoldAmount} Gold gedroppt! (Basis: {baseGoldAmount}, Bonus: {bonusGoldAmount})");
             }
             else
             {
@@ -81,11 +108,9 @@ public class Enemy : MonoBehaviour
             }
         }
 
-
         EnemySpawner.Instance.activeEnemies.Remove(this);
         Destroy(gameObject);
-        EnemySpawner.Instance.ReindexEnemies(); // <--- Neu
-   
+        EnemySpawner.Instance.ReindexEnemies();
     }
 
 
@@ -126,10 +151,9 @@ public class Enemy : MonoBehaviour
     }
 
 
-
     public void AttackPlayer(PlayerHealthManager player)
     {
-        // Nur ein Gegner (z. B. Index 0 oder Boss) startet die Coroutine
+        // Nur ein Gegner (z.B. Index 0 oder Boss) startet die Coroutine
         if (enemyIndex == 0 || enemyIndex == 4)
         {
             StartCoroutine(EnemiesAttackOneAfterAnother());
