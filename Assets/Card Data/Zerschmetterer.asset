@@ -15,7 +15,10 @@ MonoBehaviour:
   cardName: Zerschmetterer
   cardImage: {fileID: 2628489477681342773, guid: ac1ccf2c1b6a2f242b5272c1d833e73e, type: 3}
   manaCost: 3
-  damage: 3
-  healAmount: 0
+  damage: 70
+  healPercent: 0
   bonusManaNextTurn: 0
   playSound: {fileID: 8300000, guid: fd83576f6c187fa44ae2ae7af7719ffd, type: 3}
+  doubleDamageIfFullHealth: 0
+  splitDamageOnTwoEnemies: 0
+  isDoubleNextAttackCard: 0

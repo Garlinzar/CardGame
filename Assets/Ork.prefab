@@ -480,12 +480,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fc9ef8e5e2f0c4098ce49c47270f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 10
+  maxHealth: 100
+  currentHealth: 100
   attackDamage: 2
   enemyIndex: 0
   popupSpawnPoint: {fileID: 0}
   healthSlider: {fileID: 5971426546876909108}
+  soulValue: 10
+  goldDropRange: {x: 5, y: 20}
 --- !u!114 &4197985653480993978
 MonoBehaviour:
   m_ObjectHideFlags: 0

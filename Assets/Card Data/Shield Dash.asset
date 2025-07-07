@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Shield Dash
   cardImage: {fileID: -5421596046188354615, guid: 3e9851b96a37f954c88b133ee38b4097, type: 3}
-  manaCost: 1
-  damage: 1
-  healAmount: 0
+  manaCost: 2
+  damage: 40
+  healPercent: 0
   bonusManaNextTurn: 0
+  shieldAmount: 20
   playSound: {fileID: 8300000, guid: c1112720a3b6dd74e9be18e5af56f646, type: 3}
+  doubleDamageIfFullHealth: 0
+  splitDamageOnTwoEnemies: 0
+  isDoubleNextAttackCard: 0
+  guaranteedCriticalHit: 0

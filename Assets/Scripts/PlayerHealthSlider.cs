@@ -9,16 +9,23 @@ public class PlayerHealthManager : MonoBehaviour
     public PlayerHitEffect hitEffect;
  
 
-    public int maxHealth = 20;
+    public int maxHealth = 100;
     public int currentHealth;
+    private UpgradeManager upgradeManager;
+    public int currentShield = 0;
 
     public GameOverManager gameOverManager;
+    public TextMeshProUGUI shieldText;
+
 
     [Header("Damage Popup")]
     public DamagePopupSpawner damagePopupSpawner;  
 
     void Start()
     {
+        upgradeManager = FindFirstObjectByType<UpgradeManager>();
+        int gluttonyLevel = upgradeManager.GetUpgradeLevel("Gluttony");
+        maxHealth = maxHealth + (5 * gluttonyLevel);
         currentHealth = maxHealth;
         UpdateHealthUI();
         Debug.Log("[PlayerHealthManager] Start() aufgerufen – currentHealth: " + currentHealth);
@@ -32,9 +39,27 @@ public class PlayerHealthManager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        int damageToApply = damage;
         Debug.Log("[PlayerHealthManager] TakeDamage() aufgerufen mit damage: " + damage);
 
-        currentHealth -= damage;
+        if (currentShield > 0)
+        {
+            if (damageToApply <= currentShield)
+            {
+                currentShield -= damageToApply;
+                damageToApply = 0;
+            }
+            else
+            {
+                damageToApply -= currentShield;
+                currentShield = 0;
+            }
+
+            UpdateShieldUI(); // Schildanzeige aktualisieren
+        }
+
+
+        currentHealth -= damageToApply;
         if (currentHealth < 0) currentHealth = 0;{
             UpdateHealthUI();
 
@@ -95,4 +120,12 @@ public class PlayerHealthManager : MonoBehaviour
             healthText.text = $"{currentHealth} / {maxHealth}";
         }
     }
+    public void UpdateShieldUI()
+    {
+        if (shieldText != null)
+        {
+            shieldText.text = currentShield > 0 ? $" +{currentShield}" : "";
+        }
+    }
+
 }

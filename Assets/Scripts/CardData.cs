@@ -9,11 +9,13 @@ public class CardData : ScriptableObject
     public int damage;
     public int healPercent; // Heilt den Spieler
     public int bonusManaNextTurn; // Gibt Bonusmana für nächste Runde
+    public int shieldAmount; // Schild für den Spieler
     public AudioClip playSound;
 
     [Header("Spezialeffekte")]
     public bool doubleDamageIfFullHealth;
     public bool splitDamageOnTwoEnemies;
     public bool isDoubleNextAttackCard = false;
+    public bool guaranteedCriticalHit = false; // Kritischer Treffer garantiert
 
 }

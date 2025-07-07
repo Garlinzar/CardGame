@@ -15,7 +15,10 @@ MonoBehaviour:
   cardName: Schlag
   cardImage: {fileID: -7355844973371500262, guid: e2fb37047cc89b74095f1b3242d2f87c, type: 3}
   manaCost: 1
-  damage: 1
-  healAmount: 0
+  damage: 10
+  healPercent: 0
   bonusManaNextTurn: 0
   playSound: {fileID: 8300000, guid: 8e6b3d0456b747c498aaba633b86d72a, type: 3}
+  doubleDamageIfFullHealth: 0
+  splitDamageOnTwoEnemies: 0
+  isDoubleNextAttackCard: 0

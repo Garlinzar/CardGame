@@ -33,7 +33,9 @@ public class DeckManager : MonoBehaviour
     public AudioClip cardPlaceSound; // Der einheitliche Sound fürs Kartenlegen
     public AudioSource audioSource;
 
-    public bool doubleAttackNextDamageCard = false;
+    private bool doubleAttackNextDamageCard = false;
+    private bool guaranteedCriticalHit = false;
+    private UpgradeManager upgradeManager;
 
 
     void Start()
@@ -52,6 +54,11 @@ public class DeckManager : MonoBehaviour
                     Debug.LogError("❌ Hero konnte nicht automatisch gefunden werden!");
                 }
             }
+        upgradeManager = FindFirstObjectByType<UpgradeManager>();
+        if (upgradeManager == null)
+        {
+            Debug.LogWarning("⚠️ UpgradeManager wurde nicht gefunden!");
+        }
 
         BuildDeck();
     }
@@ -174,31 +181,57 @@ public class DeckManager : MonoBehaviour
 
         CardDataHolder holder = CardSelector.selectedCard.GetComponent<CardDataHolder>();
         if (holder == null || holder.cardData == null) return;
-
+        int manaCost = holder.cardData.manaCost;
         if (holder.cardData.isDoubleNextAttackCard)
         {
+            if (!gameManager.TrySpendMana(manaCost)) return;
+
             doubleAttackNextDamageCard = true;
             Debug.Log("🔁 Doppelschlag-Effekt aktiviert für nächste Angriffskarte!");
             Destroy(CardSelector.selectedCard);
             CardSelector.selectedCard = null;
             return; // Keine weiteren Effekte bei dieser Karte
         }
+        if (holder.cardData.guaranteedCriticalHit)
+        {
+            guaranteedCriticalHit = true;
+            Debug.Log("✨ Nächster Angriff wird garantiert kritisch!");
+            Destroy(CardSelector.selectedCard);
+            CardSelector.selectedCard = null;
+            return;
+        }
 
-        int manaCost = holder.cardData.manaCost;
+        
         int damage = holder.cardData.damage;
+        int wrathLevel = upgradeManager.GetUpgradeLevel("Wrath");
+        Debug.Log("Wrath Level: " + wrathLevel);
+        float critChance = 0.1f;
+        if (damage > 0 && guaranteedCriticalHit)
+        {
+            critChance = 1f;
+            guaranteedCriticalHit = false;
+            Debug.Log("🔥 Garantierter Kritischer Treffer wird ausgeführt!");
+        }
+        if (Random.value <= critChance)
+        {
+            damage = Mathf.RoundToInt(damage * (1.5f+(0.05f*wrathLevel))); // 10% Chance auf Doppelschaden
+            Debug.Log("💥 Kritischer Treffer! Schaden wurde auf " + damage + " erhöht.");
+        }
+        
         int healAmount = holder.cardData.healPercent;
         int bonusManaNextTurn = holder.cardData.bonusManaNextTurn;
+        int shieldAmount = holder.cardData.shieldAmount;
 
         if (!gameManager.TrySpendMana(manaCost)) return;
 
-        StartCoroutine(PlayCardWithSounds(holder.cardData, damage, healAmount, bonusManaNextTurn));
+        StartCoroutine(PlayCardWithSounds(holder.cardData, damage, healAmount, bonusManaNextTurn, shieldAmount));
 
         Destroy(CardSelector.selectedCard);
         CardSelector.selectedCard = null;
     }
 
 
-    private IEnumerator PlayCardWithSounds(CardData cardData, int damage, int healAmount, int bonusManaNextTurn)
+    private IEnumerator PlayCardWithSounds(CardData cardData, int damage, int healAmount, int bonusManaNextTurn, int shieldAmount)
     {
         // Zuerst globaler Kartenlegen-Sound
         if (cardPlaceSound != null && audioSource != null)
@@ -274,12 +307,6 @@ public class DeckManager : MonoBehaviour
                         {
                             int actualDamage = damage;
 
-                            if (cardData.doubleDamageIfFullHealth && target.currentHealth == target.maxHealth)
-                            {
-                                actualDamage *= 2;
-                                Debug.Log("🎯 Doppelschaden aktiviert – Gegner hat volles Leben!");
-                            }
-
                             target.TakeDamage(actualDamage);
                         }
                     }
@@ -287,12 +314,6 @@ public class DeckManager : MonoBehaviour
                     {
                         Enemy target = aliveEnemies[0];
                         int actualDamage = damage;
-
-                        if (cardData.doubleDamageIfFullHealth && target.currentHealth == target.maxHealth)
-                        {
-                            actualDamage *= 2;
-                            Debug.Log("🎯 Doppelschaden aktiviert – Gegner hat volles Leben!");
-                        }
 
                         target.TakeDamage(actualDamage);
                     }
@@ -302,6 +323,13 @@ public class DeckManager : MonoBehaviour
                     // Standardfall: erster lebender Gegner wird angegriffen
                     foreach (Enemy enemy in spawner.activeEnemies)
                     {
+                        if (shieldAmount > 0 && PlayerHealthManager.Instance != null)
+                        {
+                            PlayerHealthManager.Instance.currentShield += shieldAmount;
+                            PlayerHealthManager.Instance.UpdateShieldUI();
+                            Debug.Log($"🛡️ Spieler erhält {shieldAmount} Schild!");
+                        }
+
                         if (enemy != null && enemy.currentHealth > 0)
                         {
                             int actualDamage = damage;

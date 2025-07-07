@@ -15,7 +15,11 @@ MonoBehaviour:
   cardName: Kopfschuss
   cardImage: {fileID: 6312282112666246956, guid: 4312189b4bf3a5a4db2484efbdc131a6, type: 3}
   manaCost: 2
-  damage: 2
-  healAmount: 0
+  damage: 0
+  healPercent: 0
   bonusManaNextTurn: 0
   playSound: {fileID: 0}
+  doubleDamageIfFullHealth: 0
+  splitDamageOnTwoEnemies: 0
+  isDoubleNextAttackCard: 0
+  guaranteedCriticalHit: 1

@@ -16,6 +16,9 @@ MonoBehaviour:
   cardImage: {fileID: 789176191414556671, guid: cd137ab9c2d432245b6878ca3b419a2a, type: 3}
   manaCost: 1
   damage: 0
-  healAmount: 5
-  bonusManaNextTurn: 1
+  healPercent: 0
+  bonusManaNextTurn: 2
   playSound: {fileID: 0}
+  doubleDamageIfFullHealth: 0
+  splitDamageOnTwoEnemies: 0
+  isDoubleNextAttackCard: 0
