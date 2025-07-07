@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     private bool canEndTurn = true;
     public float endTurnCooldown = 1f;
 
+    [Header("Scrolling")]
+    public BackgroundScroller backgroundScroller;
+
 
     void Start()
     {
@@ -141,6 +144,17 @@ public class GameManager : MonoBehaviour
 
         if (EnemySpawner.Instance.AreAllEnemiesDead())
         {
+
+            // ✨ Hintergrund scrollen
+            if (backgroundScroller != null)
+            {
+                backgroundScroller.ScrollOneStep();
+            }
+            if (backgroundScroller == null)
+            {
+                Debug.LogError("❌ BackgroundScroller wurde im Inspector nicht zugewiesen!");
+            }
+
             Debug.Log("Alle Gegner wurden besiegt! Neue Gegner spawnen.");
             EnemySpawner.Instance.SpawnEnemies();
         }

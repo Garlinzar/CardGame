@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     // Referenzen zu den benötigten Skripten
     private Currency currency; // Um Gold und Seelen hinzuzufügen
     private UpgradeManager upgradeManager; // Um das Greed-Level abzufragen
+   
 
     void Start()
     {
