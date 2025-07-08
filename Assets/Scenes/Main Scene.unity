@@ -151,6 +151,7 @@ MonoBehaviour:
   healthSlider: {fileID: 1209842027}
   healthText: {fileID: 1000503316}
   hitEffect: {fileID: 734785184}
+  popupSpawnPoint: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
   currentShield: 0
@@ -1269,7 +1270,7 @@ Transform:
   m_GameObject: {fileID: 602510525}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 2.2, z: 0}
+  m_LocalPosition: {x: -3.5, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1501,8 +1502,8 @@ Transform:
   m_GameObject: {fileID: 734785180}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8, y: 0.4, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalPosition: {x: -4.62, y: 0.49, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1551,7 +1552,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 3014771040849064473, guid: 00dbda1c8172ede4e81de56fe65968c3, type: 3}
+  m_Sprite: {fileID: -2311659948842064771, guid: 7f7540524947f594f8c35f7fc0fc1e5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2905,7 +2906,7 @@ Transform:
   m_GameObject: {fileID: 1190878468}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 2.2, z: 0}
+  m_LocalPosition: {x: 0, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3842,7 +3843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -310, y: 210}
+  m_AnchoredPosition: {x: -611, y: 212}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1521835611
@@ -4039,13 +4040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3169957e8fc9a6d4d828b8ab2f85e7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePopupPrefab: {fileID: 7726100820523887916, guid: 0ab6077cb40cad349b27cd41e897342e, type: 3}
-  playerSpawnPoint: {fileID: 1419861432}
-  enemySpawnPoints:
-  - {fileID: 935211765}
-  - {fileID: 395940547}
-  - {fileID: 1944010901}
-  bossPopupPoint: {fileID: 2049873853}
+  damagePopupPrefab: {fileID: 2474825450919215661, guid: 9bbe62a19e3e32244a0fe3291e34a4ac, type: 3}
 --- !u!4 &1589708790
 Transform:
   m_ObjectHideFlags: 0
@@ -4651,7 +4646,7 @@ Transform:
   m_GameObject: {fileID: 1746390251}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 2.2, z: 0}
+  m_LocalPosition: {x: 3.5, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4883,22 +4878,257 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a08579696976db43b964001953ab177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSlots:
-  - spawnPoint: {fileID: 602510526}
-    enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
-    enabled: 1
-  - spawnPoint: {fileID: 1190878469}
-    enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
-    enabled: 1
-  - spawnPoint: {fileID: 1746390252}
-    enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
-    enabled: 1
-  bossPrefab: {fileID: 2410217149237544360, guid: 7307845debc35bf44b842fb59ab69b19, type: 3}
-  bossSpawnPoint: {fileID: 1190878469}
   waveCounterText: {fileID: 385308915}
   activeEnemies: []
-  currentWave: 1
-  maxWaves: 10
+  currentWave: 16
+  maxWaves: 16
+  storyWaves:
+  - enemies:
+    - enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 120
+      customDamage: 15
+      isBoss: 0
+    - enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 120
+      customDamage: 15
+      isBoss: 0
+    - enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 120
+      customDamage: 15
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 120
+      customDamage: 15
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 120
+      customDamage: 15
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 120
+      customDamage: 15
+      isBoss: 0
+    - enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 120
+      customDamage: 15
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 120
+      customDamage: 15
+      isBoss: 0
+    - enemyPrefab: {fileID: 2005588848242985884, guid: 0a613106b02a2de40973289c382f74b3, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 100
+      customDamage: 45
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 2975654301716211894, guid: 4d57227bf130dcf428db617e3bfcedef, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 180
+      customDamage: 35
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 8754633267358685797, guid: 2678d7e686528a24ba866c928d773d93, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 120
+      customDamage: 15
+      isBoss: 0
+    - enemyPrefab: {fileID: 6917229944189742982, guid: 0c8ae2bbd6dcf954daf14d7431dad305, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 80
+      customDamage: 60
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 2975654301716211894, guid: 4d57227bf130dcf428db617e3bfcedef, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 180
+      customDamage: 35
+      isBoss: 0
+    - enemyPrefab: {fileID: 2975654301716211894, guid: 4d57227bf130dcf428db617e3bfcedef, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 180
+      customDamage: 35
+      isBoss: 0
+    - enemyPrefab: {fileID: 5100832589393813995, guid: ff2442b51fc7c024c8a971b014da7376, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 60
+      customDamage: 25
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 2975654301716211894, guid: 4d57227bf130dcf428db617e3bfcedef, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 180
+      customDamage: 35
+      isBoss: 0
+    - enemyPrefab: {fileID: 6917229944189742982, guid: 0c8ae2bbd6dcf954daf14d7431dad305, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 80
+      customDamage: 60
+      isBoss: 0
+    - enemyPrefab: {fileID: 6917229944189742982, guid: 0c8ae2bbd6dcf954daf14d7431dad305, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 80
+      customDamage: 60
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 7912812466523784515, guid: 0abc5f3e9a54f1f47955f286fbdffeeb, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 250
+      customDamage: 50
+      isBoss: 0
+    - enemyPrefab: {fileID: 2975654301716211894, guid: 4d57227bf130dcf428db617e3bfcedef, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 180
+      customDamage: 35
+      isBoss: 0
+    - enemyPrefab: {fileID: 2005588848242985884, guid: 0a613106b02a2de40973289c382f74b3, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 100
+      customDamage: 45
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 7912812466523784515, guid: 0abc5f3e9a54f1f47955f286fbdffeeb, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 250
+      customDamage: 50
+      isBoss: 0
+    - enemyPrefab: {fileID: 2975654301716211894, guid: 4d57227bf130dcf428db617e3bfcedef, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 180
+      customDamage: 35
+      isBoss: 0
+    - enemyPrefab: {fileID: 6917229944189742982, guid: 0c8ae2bbd6dcf954daf14d7431dad305, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 80
+      customDamage: 60
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 7912812466523784515, guid: 0abc5f3e9a54f1f47955f286fbdffeeb, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 250
+      customDamage: 50
+      isBoss: 0
+    - enemyPrefab: {fileID: 2005588848242985884, guid: 0a613106b02a2de40973289c382f74b3, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 100
+      customDamage: 45
+      isBoss: 0
+    - enemyPrefab: {fileID: 2005588848242985884, guid: 0a613106b02a2de40973289c382f74b3, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 100
+      customDamage: 45
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 7912812466523784515, guid: 0abc5f3e9a54f1f47955f286fbdffeeb, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 250
+      customDamage: 50
+      isBoss: 0
+    - enemyPrefab: {fileID: 7912812466523784515, guid: 0abc5f3e9a54f1f47955f286fbdffeeb, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 250
+      customDamage: 50
+      isBoss: 0
+    - enemyPrefab: {fileID: 6917229944189742982, guid: 0c8ae2bbd6dcf954daf14d7431dad305, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 80
+      customDamage: 60
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 7912812466523784515, guid: 0abc5f3e9a54f1f47955f286fbdffeeb, type: 3}
+      spawnPoint: {fileID: 602510526}
+      customHealth: 250
+      customDamage: 50
+      isBoss: 0
+    - enemyPrefab: {fileID: 7912812466523784515, guid: 0abc5f3e9a54f1f47955f286fbdffeeb, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 250
+      customDamage: 50
+      isBoss: 0
+    - enemyPrefab: {fileID: 7912812466523784515, guid: 0abc5f3e9a54f1f47955f286fbdffeeb, type: 3}
+      spawnPoint: {fileID: 1746390252}
+      customHealth: 250
+      customDamage: 50
+      isBoss: 0
+  - enemies:
+    - enemyPrefab: {fileID: 4428568632863332701, guid: 6d3000e6b17afca429b911a6f9394a88, type: 3}
+      spawnPoint: {fileID: 1190878469}
+      customHealth: 1000
+      customDamage: 80
+      isBoss: 1
 --- !u!4 &2000166540
 Transform:
   m_ObjectHideFlags: 0

@@ -14,14 +14,8 @@ public class EnemySpawner : MonoBehaviour
         public GameObject enemyPrefab;
         public bool enabled = true;
     }
-
-    [Header("Spawn-Slots (1–3 Gegner individuell)")]
-    public EnemySpawnSlot[] spawnSlots;
-
-    [Header("Boss")]
-    public GameObject bossPrefab;
-    public Transform bossSpawnPoint;  
-
+    [Header("Story Mode Wellen")]
+    
     [Header("UI")]
     public TextMeshProUGUI waveCounterText; 
 
@@ -56,42 +50,73 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+    [System.Serializable]
+    public class WaveEnemyData
+    {
+        public GameObject enemyPrefab;
+        public Transform spawnPoint; // ➕ individueller Spawnpunkt
+        public int customHealth = 100;
+        public int customDamage = 10;
+        public bool isBoss = false; // 🆕 Boss-Markierung
+    }
+
+    [System.Serializable]
+    public class WaveData
+    {
+        public List<WaveEnemyData> enemies;
+    }
+
+    [System.Serializable]
+    public class StoryWaveData
+    {
+        public List<WaveEnemyData> enemies;
+    }
+
+    public List<StoryWaveData> storyWaves = new List<StoryWaveData>();
 
 
     public void SpawnEnemies()
     {
         activeEnemies.Clear();
 
-        if (currentWave < maxWaves)
+        if (currentWave <= storyWaves.Count)
         {
-            Debug.Log($"Welle {currentWave} startet: Normale Gegner spawnen.");
+            Debug.Log($"Welle {currentWave} wird aus storyWaves geladen.");
 
-            for (int i = 0; i < spawnSlots.Length; i++)
+            StoryWaveData currentWaveData = storyWaves[currentWave - 1]; // Index-Anpassung
+
+            for (int i = 0; i < currentWaveData.enemies.Count; i++)
             {
-                EnemySpawnSlot slot = spawnSlots[i];
-                if (slot.enabled && slot.spawnPoint != null && slot.enemyPrefab != null)
+                WaveEnemyData enemyData = currentWaveData.enemies[i];
+                Transform spawnPoint = enemyData.spawnPoint;
+
+                if (enemyData.enemyPrefab != null && spawnPoint != null)
                 {
-                    GameObject instance = Instantiate(slot.enemyPrefab, slot.spawnPoint.position, Quaternion.identity);
+                    // ➕ Temporär Instanz zur Y-Offset-Abfrage vorbereiten
+                    Enemy tempScript = enemyData.enemyPrefab.GetComponent<Enemy>();
+                    float yOffset = tempScript != null ? tempScript.spawnYOffset : 0f;
+
+                    // ✅ Korrigierte Position mit Y-Offset
+                    Vector3 spawnPos = spawnPoint.position + new Vector3(0f, yOffset, 0f);
+                    GameObject instance = Instantiate(enemyData.enemyPrefab, spawnPos, Quaternion.identity);
+
                     Enemy enemyScript = instance.GetComponent<Enemy>();
+
                     if (enemyScript != null)
                     {
-                        enemyScript.enemyIndex = i; // Index 1–3 für Damage Popups
+                        // ➕ Werte aus WaveData übernehmen
+                        enemyScript.maxHealth = enemyData.customHealth;
+                        enemyScript.currentHealth = enemyData.customHealth;
+                        enemyScript.attackDamage = enemyData.customDamage;
+                        enemyScript.enemyIndex = enemyData.isBoss ? 4 : i;
+
+                        // ➕ Zur aktiven Liste hinzufügen
                         activeEnemies.Add(enemyScript);
                     }
                 }
-            }
-        }
-        else if (currentWave == maxWaves)
-        {
-            Debug.Log("Welle 10 startet: BOSS spawnt!");
-            if (bossPrefab != null && bossSpawnPoint != null)
-            {
-                GameObject bossInstance = Instantiate(bossPrefab, bossSpawnPoint.position, Quaternion.identity);
-                Enemy bossScript = bossInstance.GetComponent<Enemy>();
-                if (bossScript != null)
+                else
                 {
-                    bossScript.enemyIndex = 4;  // Index 4 für Popups
-                    activeEnemies.Add(bossScript);
+                    Debug.LogWarning($"❌ Gegner oder Spawnpunkt fehlt in Wave {currentWave} an Index {i}!");
                 }
             }
         }
@@ -99,10 +124,13 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.Log("Alle Wellen abgeschlossen!");
         }
-        UpdateWaveCounterUI();
 
+        UpdateWaveCounterUI();
         currentWave++;
     }
+
+
+
 
     public bool AreAllEnemiesDead()
     {

@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour
     public int attackDamage = 2;
     public int enemyIndex;
     public Transform popupSpawnPoint;
+    [Header("Spawn Offset")]
+    public float spawnYOffset = 0f;
+
 
     [Header("UI")]
     public Slider healthSlider;
@@ -50,13 +53,13 @@ public class Enemy : MonoBehaviour
         UpdateHealthUI();
 
         // Schaden anzeigen
-        if (DamagePopupSpawner.Instance != null)
-        {
-            DamagePopupSpawner.Instance.SpawnEnemyDamagePopup(enemyIndex, -damage, Color.red);
-        }
+
+        DamagePopupSpawner.Instance.SpawnEnemyDamagePopup(popupSpawnPoint, -damage, Color.red);
+
 
         if (currentHealth <= 0)
         {
+            WaitForSeconds wait = new WaitForSeconds(0.5f);
             Die();
         }
     }
@@ -108,7 +111,11 @@ public class Enemy : MonoBehaviour
                 Debug.Log("Kein Gold gedroppt (Chance verfehlt)");
             }
         }
+        Invoke(nameof(DestroyEnemy), 0.5f); // z. B. 0.1 Sekunden verzögern
 
+    }
+    private void DestroyEnemy()
+    {
         EnemySpawner.Instance.activeEnemies.Remove(this);
         Destroy(gameObject);
         EnemySpawner.Instance.ReindexEnemies();

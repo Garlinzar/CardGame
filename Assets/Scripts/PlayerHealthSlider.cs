@@ -7,7 +7,9 @@ public class PlayerHealthManager : MonoBehaviour
     public Slider healthSlider;
     public TextMeshProUGUI healthText;
     public PlayerHitEffect hitEffect;
- 
+    public Transform popupSpawnPoint; // im Inspector zuweisen
+
+
 
     public int maxHealth = 100;
     public int currentHealth;
@@ -68,9 +70,8 @@ public class PlayerHealthManager : MonoBehaviour
         
         if (damagePopupSpawner != null)
         {
-            Vector3 popupPosition = transform.position + Vector3.up * 2.0f;
-            Debug.Log("[PlayerHealthManager] Schaden-Popup wird gespawnt an Position: " + popupPosition);
-            damagePopupSpawner.SpawnPlayerDamagePopup(-damage, Color.red);
+          //  DamagePopupSpawner.Instance.SpawnHeroDamagePopup(damage);
+
         }
         else
         {
@@ -95,9 +96,9 @@ public class PlayerHealthManager : MonoBehaviour
         // ➡️ Popup auslösen (in grün für Heilung)
         if (damagePopupSpawner != null)
         {
-            Vector3 popupPosition = transform.position + Vector3.up * 2.0f;
-            Debug.Log("[PlayerHealthManager] Heil-Popup wird gespawnt an Position: " + popupPosition);
-            damagePopupSpawner.SpawnPlayerDamagePopup(+amount, Color.green);
+         //   DamagePopupSpawner.Instance.SpawnHeroHealPopup(amount);
+
+
         }
         else
         {
@@ -127,5 +128,8 @@ public class PlayerHealthManager : MonoBehaviour
             shieldText.text = currentShield > 0 ? $" +{currentShield}" : "";
         }
     }
+
+
+
 
 }
