@@ -9,6 +9,7 @@ public class SimpleMenuController : MonoBehaviour
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject tutorialPanel;
     [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private GameObject ModeSelectPanel;
 
     [Header("Main Menu Buttons")]
     [SerializeField] private Button startGameButton;
@@ -112,6 +113,7 @@ public class SimpleMenuController : MonoBehaviour
         if (optionsPanel) optionsPanel.SetActive(false);
         if (tutorialPanel) tutorialPanel.SetActive(false);
         if (creditsPanel) creditsPanel.SetActive(false);
+        if (ModeSelectPanel) ModeSelectPanel.SetActive(false);
 
         // Show the selected panel
         if (panelToShow) panelToShow.SetActive(true);

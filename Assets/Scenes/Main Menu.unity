@@ -1660,7 +1660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &556796107
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4961,6 +4961,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245c81666b20a2b86b6a5c162131766f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  campaignModeButton: {fileID: 1968505374}
+  infiniteModeButton: {fileID: 1839641531}
+  MainMenuButton: {fileID: 1765001982}
+  shopButton: {fileID: 281090506}
+  upgradesPanel: {fileID: 556796106}
 --- !u!1 &1755133746
 GameObject:
   m_ObjectHideFlags: 0

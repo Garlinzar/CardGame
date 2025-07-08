@@ -9,6 +9,7 @@ public class ModeSelectController : MonoBehaviour
     [SerializeField] private Button infiniteModeButton;
     [SerializeField] private Button MainMenuButton;
     [SerializeField] private Button shopButton;
+    [SerializeField] private Button ReturnButton;
     [SerializeField] private GameObject upgradesPanel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +23,7 @@ public class ModeSelectController : MonoBehaviour
         if (infiniteModeButton) infiniteModeButton.onClick.AddListener(OnInfiniteModeClicked);
         if (MainMenuButton) MainMenuButton.onClick.AddListener(OnMainMenuClicked);
         if (shopButton) shopButton.onClick.AddListener(OnShopClicked);
+        if (ReturnButton) ReturnButton.onClick.AddListener(CloseUpgradesPanel);
     }
 
     private void OnCampaignModeClicked()
