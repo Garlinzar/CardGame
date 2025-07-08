@@ -13,6 +13,7 @@ public class SimpleMenuController : MonoBehaviour
 
     [Header("Main Menu Buttons")]
     [SerializeField] private Button startGameButton;
+    [SerializeField] private Button swtichModeSelectButton;
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button tutorialButton;
     [SerializeField] private Button creditsButton;
@@ -41,6 +42,7 @@ public class SimpleMenuController : MonoBehaviour
         if (creditsButton) creditsButton.onClick.AddListener(OnCreditsClicked);
         if (quitButton) quitButton.onClick.AddListener(QuitGame);
         if (loadMainMenuButton) loadMainMenuButton.onClick.AddListener(loaddMainMenuClicked);
+        if (swtichModeSelectButton) swtichModeSelectButton.onClick.AddListener(() => ShowPanel(ModeSelectPanel));
 
         // Set up back button listeners
         if (optionsBackButton) optionsBackButton.onClick.AddListener(ReturnToMainMenu);
